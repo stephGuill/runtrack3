@@ -1,0 +1,300 @@
+/* ==================== STYLES GÉNÉRAUX ==================== */
+/* Réinitialisation des marges par défaut du navigateur */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================== STYLES DU BODY AVEC HAUTEUR MINIMALE ==================== */
+/* Le body doit avoir une hauteur minimale de 4096px selon les spécifications */
+body {
+    /* min-height: 4096px force le body à faire au minimum 4096px de hauteur */
+    /* Cela garantit qu'il y aura suffisamment de contenu pour scroller */
+    min-height: 4096px;
+    
+    /* Famille de polices sans-serif pour une bonne lisibilité */
+    font-family: Arial, sans-serif;
+    
+    /* Hauteur de ligne pour améliorer la lisibilité du texte */
+    line-height: 1.6;
+    
+    /* Couleur de fond légèrement grise pour le confort visuel */
+    background-color: #f5f5f5;
+    
+    /* Assurer que le body prend toute la largeur disponible */
+    width: 100%;
+    
+    /* Espacement en bas pour éviter que le contenu soit caché par le footer fixe */
+    padding-bottom: 80px;
+}
+
+/* ==================== CONTENEUR PRINCIPAL ==================== */
+.container {
+    /* Largeur maximale pour éviter des lignes de texte trop longues */
+    max-width: 1200px;
+    
+    /* Centrage horizontal du conteneur */
+    margin: 0 auto;
+    
+    /* Espacement intérieur pour que le contenu ne touche pas les bords */
+    padding: 20px;
+    
+    /* Fond blanc pour faire ressortir le contenu */
+    background-color: white;
+    
+    /* Ombre légère pour donner de la profondeur */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    
+    /* Hauteur minimale pour s'assurer que le conteneur occupe l'espace nécessaire */
+    min-height: 4000px;
+}
+
+/* ==================== STYLES DES TITRES ==================== */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #444;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2196F3;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #555;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* ==================== ZONE DE DESCRIPTION ==================== */
+.description {
+    background-color: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+/* ==================== CONTENU PRINCIPAL ==================== */
+.content {
+    font-size: 16px;
+    color: #333;
+}
+
+.content p {
+    margin-bottom: 15px;
+}
+
+.content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.content li {
+    margin-bottom: 8px;
+}
+
+/* ==================== SECTIONS DE CONTENU ==================== */
+.section {
+    margin: 50px 0;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border-left: 5px solid #4CAF50;
+}
+
+.final-section {
+    margin: 50px 0;
+    padding: 40px;
+    background-color: #e8f5e8;
+    border-radius: 15px;
+    border: 3px solid #4CAF50;
+    text-align: center;
+}
+
+/* ==================== STYLES POUR LE CODE ==================== */
+code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+    font-size: 0.9em;
+}
+
+/* ==================== FOOTER FIXE EN POSITION ABSOLUTE ==================== */
+/* Le footer doit être fixé en bas de la fenêtre selon les spécifications */
+#scrollFooter {
+    /* position: fixed fixe l'élément par rapport à la fenêtre du navigateur */
+    /* Il reste visible même lors du scroll, contrairement à position: absolute */
+    position: fixed;
+    
+    /* bottom: 0 positionne le footer tout en bas de la fenêtre */
+    bottom: 0;
+    
+    /* left: 0 positionne le footer à partir du bord gauche */
+    left: 0;
+    
+    /* width: 100% fait que le footer prend toute la largeur de la fenêtre */
+    width: 100%;
+    
+    /* Hauteur fixe du footer */
+    height: 60px;
+    
+    /* Couleur de fond initiale (rouge) - sera modifiée par JavaScript */
+    /* Cette couleur correspond à 0% de scroll */
+    background-color: #ff4444;
+    
+    /* Couleur du texte en blanc pour contraster avec les fonds colorés */
+    color: white;
+    
+    /* Centrage vertical et horizontal du contenu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Transition fluide pour les changements de couleur */
+    /* 0.1s est assez rapide pour suivre le scroll en temps réel */
+    transition: background-color 0.1s ease;
+    
+    /* Ombre vers le haut pour donner un effet de profondeur */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    
+    /* z-index élevé pour s'assurer que le footer reste au-dessus du contenu */
+    z-index: 1000;
+    
+    /* Police en gras pour une meilleure visibilité */
+    font-weight: bold;
+    
+    /* Taille de police légèrement plus grande */
+    font-size: 18px;
+}
+
+/* ==================== CONTENU DU FOOTER ==================== */
+.footer-content {
+    /* Disposition en ligne pour aligner les éléments horizontalement */
+    display: flex;
+    
+    /* Espacement entre les éléments */
+    gap: 20px;
+    
+    /* Centrage des éléments */
+    align-items: center;
+}
+
+/* ==================== INDICATEUR DE POURCENTAGE ==================== */
+#scrollPercent {
+    /* Taille de police plus grande pour l'indicateur de pourcentage */
+    font-size: 24px;
+    
+    /* Police à espacement fixe pour que les chiffres s'alignent bien */
+    font-family: 'Courier New', monospace;
+    
+    /* Poids de police extra-gras pour faire ressortir le pourcentage */
+    font-weight: 900;
+    
+    /* Ombre du texte pour améliorer la lisibilité */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ==================== TEXTE DESCRIPTIF DU FOOTER ==================== */
+.footer-text {
+    /* Taille de police normale pour le texte descriptif */
+    font-size: 16px;
+    
+    /* Opacité légèrement réduite pour moins d'importance visuelle */
+    opacity: 0.9;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+/* Adaptation pour les écrans de taille moyenne (tablettes) */
+@media (max-width: 768px) {
+    .container {
+        /* Réduction de l'espacement sur les écrans plus petits */
+        padding: 15px;
+        
+        /* Suppression de l'ombre sur petits écrans pour simplifier */
+        box-shadow: none;
+    }
+    
+    h1 {
+        /* Réduction de la taille du titre principal */
+        font-size: 2em;
+    }
+    
+    .section {
+        /* Réduction de l'espacement des sections */
+        margin: 30px 0;
+        padding: 20px;
+    }
+    
+    #scrollFooter {
+        /* Réduction de la hauteur du footer sur petits écrans */
+        height: 50px;
+        
+        /* Réduction de la taille de police */
+        font-size: 16px;
+    }
+    
+    #scrollPercent {
+        /* Réduction de la taille du pourcentage */
+        font-size: 20px;
+    }
+}
+
+/* Adaptation pour les très petits écrans (smartphones) */
+@media (max-width: 480px) {
+    .container {
+        /* Espacement minimal sur très petits écrans */
+        padding: 10px;
+    }
+    
+    .footer-content {
+        /* Passage en colonne sur très petits écrans */
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    #scrollFooter {
+        /* Hauteur réduite pour économiser l'espace */
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    #scrollPercent {
+        font-size: 18px;
+    }
+    
+    .footer-text {
+        font-size: 12px;
+    }
+}
+
+/* ==================== STYLES POUR L'ACCESSIBILITÉ ==================== */
+/* Amélioration du contraste pour une meilleure lisibilité */
+@media (prefers-contrast: high) {
+    #scrollFooter {
+        /* Bordure plus visible en mode contraste élevé */
+        border-top: 2px solid white;
+    }
+    
+    #scrollPercent {
+        /* Ombre plus prononcée pour le texte */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+    #scrollFooter {
+        /* Suppression de la transition pour les utilisateurs sensibles au mouvement */
+        transition: none;
+    }
+}

@@ -1,0 +1,215 @@
+/* ==================== STYLES POUR LES BOUTONS LA PLATEFORME_ ==================== */
+/* Version agrandie et améliorée des boutons pour une meilleure visibilité */
+
+/* Boutons principaux avec couleur #0062ff */
+.plateforme-button {
+    /* === COULEURS LA PLATEFORME_ === */
+    background: linear-gradient(45deg, #0062ff, #004bb8);
+    color: white;
+    
+    /* === TAILLE ET ESPACEMENT === */
+    padding: 25px 60px;                /* Agrandi pour plus de visibilité */
+    margin: 20px;
+    min-width: 200px;                  /* Largeur minimale garantie */
+    min-height: 70px;                  /* Hauteur minimale garantie */
+    
+    /* === TYPOGRAPHIE === */
+    font-size: 1.6em;                  /* Texte plus grand */
+    font-weight: 700;                  /* Gras */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;          /* Majuscules */
+    letter-spacing: 0.15em;            /* Espacement des lettres */
+    text-align: center;
+    
+    /* === FORME ET BORDURES === */
+    border: none;                      /* Pas de bordure par défaut */
+    border-radius: 35px;               /* Coins arrondis */
+    
+    /* === POSITIONNEMENT === */
+    position: relative;
+    display: inline-flex;              /* Flexbox pour centrage */
+    align-items: center;               /* Centrage vertical */
+    justify-content: center;           /* Centrage horizontal */
+    
+    /* === CURSEUR === */
+    cursor: pointer;                   /* Curseur main au survol */
+    
+    /* === EFFETS VISUELS === */
+    box-shadow: 0 20px 40px rgba(0, 98, 255, 0.4);  /* Ombre bleue */
+    overflow: hidden;                  /* Cache les effets de débordement */
+    
+    /* === ANIMATIONS === */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Effet de brillance qui traverse le bouton */
+.plateforme-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;                       /* Commence hors écran à gauche */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;             /* Animation de déplacement */
+}
+
+/* === EFFETS AU SURVOL === */
+.plateforme-button:hover {
+    /* Transformation 3D */
+    transform: translateY(-8px) scale(1.05);
+    
+    /* Ombre plus prononcée */
+    box-shadow: 0 30px 60px rgba(0, 98, 255, 0.6);
+    
+    /* Couleur légèrement différente */
+    background: linear-gradient(45deg, #0070ff, #0055cc);
+    
+    /* Espacement des lettres accru */
+    letter-spacing: 0.2em;
+}
+
+/* Déclencher l'effet de brillance au survol */
+.plateforme-button:hover::before {
+    left: 100%;                        /* L'effet traverse vers la droite */
+}
+
+/* === EFFET AU CLIC === */
+.plateforme-button:active {
+    transform: translateY(-4px) scale(0.98);
+    box-shadow: 0 15px 30px rgba(0, 98, 255, 0.4);
+}
+
+/* === EFFET AU FOCUS (clavier) === */
+.plateforme-button:focus {
+    outline: 3px solid rgba(0, 98, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablettes et écrans moyens */
+@media (max-width: 768px) {
+    .plateforme-button {
+        padding: 20px 50px;
+        font-size: 1.4em;
+        min-width: 180px;
+        min-height: 65px;
+        margin: 15px 5px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    .plateforme-button {
+        padding: 18px 40px;
+        font-size: 1.2em;
+        min-width: 160px;
+        min-height: 60px;
+        margin: 10px 0;
+        width: 90%;                    /* Prend la largeur disponible */
+        max-width: 300px;              /* Mais pas trop large */
+    }
+}
+
+/* ==================== VARIANTES DE COULEURS ==================== */
+
+/* Bouton "Découvrir" - Bleu principal */
+.plateforme-button.discover {
+    background: linear-gradient(45deg, #0062ff, #0055cc);
+}
+
+.plateforme-button.discover:hover {
+    background: linear-gradient(45deg, #0070ff, #0062ff);
+}
+
+/* Bouton "Explorer" - Bleu plus clair */
+.plateforme-button.explore {
+    background: linear-gradient(45deg, #0070ff, #0062ff);
+}
+
+.plateforme-button.explore:hover {
+    background: linear-gradient(45deg, #0088ff, #0070ff);
+}
+
+/* Bouton "Rejoindre" - Bleu plus foncé */
+.plateforme-button.join {
+    background: linear-gradient(45deg, #004bb8, #003d99);
+}
+
+.plateforme-button.join:hover {
+    background: linear-gradient(45deg, #0062ff, #004bb8);
+}
+
+/* ==================== ANIMATIONS PERSONNALISÉES ==================== */
+
+/* Animation d'apparition des boutons */
+@keyframes buttonAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Appliquer l'animation d'apparition */
+.konami-activated .plateforme-button {
+    animation: buttonAppear 0.8s ease-out forwards;
+}
+
+/* Délai d'animation pour chaque bouton */
+.konami-activated .plateforme-button:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.konami-activated .plateforme-button:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.konami-activated .plateforme-button:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* ==================== ACCESSIBILITÉ ==================== */
+
+/* Amélioration pour les utilisateurs de lecteurs d'écran */
+.plateforme-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Réduction des animations pour les utilisateurs sensibles */
+@media (prefers-reduced-motion: reduce) {
+    .plateforme-button {
+        transition: none;
+    }
+    
+    .plateforme-button::before {
+        transition: none;
+    }
+    
+    .konami-activated .plateforme-button {
+        animation: none;
+    }
+}
+
+/* ==================== MODE SOMBRE ==================== */
+/* Note: Les boutons gardent leur couleur bleue #0062ff */
+/* même en mode sombre car c'est l'identité de La Plateforme_ */
+
+/* ==================== IMPRESSION ==================== */
+@media print {
+    .plateforme-button {
+        background: #0062ff !important;
+        color: white !important;
+        box-shadow: none !important;
+        border: 2px solid #0062ff !important;
+    }
+}
