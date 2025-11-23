@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job01 - Jour04 - Fetch Expression</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1> Expression Favorite</h1>
+        <p class="subtitle">Découvrez une citation inspirante avec Fetch API</p>
+        
+        <div class="instructions">
+            <h3> Instructions :</h3>
+            <p>Cliquez sur le bouton ci-dessous pour récupérer et afficher le contenu du fichier <code>expression.txt</code> en utilisant l'API Fetch de JavaScript.</p>
+        </div>
+        
+        <button id="button"> Charger l'expression favorite</button>
+        
+        <div class="expression-container" id="expressionContainer">
+            <!-- L'expression sera affichée ici -->
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="clickCount">0</div>
+                <div>Clics</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="loadTime">--</div>
+                <div>Temps (ms)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="fileSize">--</div>
+                <div>Taille</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

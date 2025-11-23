@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job02 - Fonction jsonValueKey()</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1> Fonction jsonValueKey()</h1>
+        <p class="subtitle">Extraction de valeurs depuis une chaîne JSON</p>
+        
+        <div class="description">
+            <h3> Description :</h3>
+            <p>La fonction <code>jsonValueKey(jsonString, key)</code> prend en paramètre :</p>
+            <ul>
+                <li><strong>jsonString</strong> : Une chaîne de caractères au format JSON</li>
+                <li><strong>key</strong> : La clé dont on veut récupérer la valeur</li>
+            </ul>
+            <p>Elle retourne la valeur associée à cette clé dans la chaîne JSON.</p>
+        </div>
+        
+        <div class="example">
+            <h4> Exemple donné :</h4>
+            <strong>JSON :</strong><br>
+            <code>{<br>
+                &nbsp;&nbsp;name: "La Plateforme_",<br>
+                &nbsp;&nbsp;address: "8 rue d'hozier",<br>
+                &nbsp;&nbsp;city: "Marseille",<br>
+                &nbsp;&nbsp;nb_staff: "11",<br>
+                &nbsp;&nbsp;creation: "2019"<br>
+            }</code><br><br>
+            <strong>Clé :</strong> <span class="key">"city"</span><br>
+            <strong>Résultat attendu :</strong> <span class="expected">"Marseille"</span>
+        </div>
+        
+        <div class="test-section">
+            <h3> Testeur interactif</h3>
+            
+            <div class="input-group">
+                <label for="jsonInput">Chaîne JSON :</label>
+                <textarea id="jsonInput" placeholder="Entrez votre chaîne JSON ici...">{
+  "name": "La Plateforme_",
+  "address": "8 rue d'hozier",
+  "city": "Marseille",
+  "nb_staff": "11",
+  "creation": "2019"
+}</textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="keyInput">Clé à rechercher :</label>
+                <input type="text" id="keyInput" placeholder="city" value="city">
+            </div>
+            
+            <button class="btn" onclick="testFunction()"> Tester la fonction</button>
+            <button class="btn btn-success" onclick="runAllTests()"> Exécuter tous les tests</button>
+            <button class="btn btn-warning" onclick="clearResults()"> Effacer</button>
+            
+            <div id="result" class="result">
+                Cliquez sur "Tester la fonction" pour voir le résultat...
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3> Cas de test prédéfinis</h3>
+            <div class="test-cases">
+                <div class="test-case">
+                    <h4>Test 1 : Exemple de base</h4>
+                    <div class="json-string">{"name": "La Plateforme_", "city": "Marseille"}</div>
+                    <div>Clé: <span class="key">"city"</span></div>
+                    <div>Attendu: <span class="expected">"Marseille"</span></div>
+                </div>
+                
+                <div class="test-case">
+                    <h4>Test 2 : Nombre</h4>
+                    <div class="json-string">{"nb_staff": "11", "creation": "2019"}</div>
+                    <div>Clé: <span class="key">"nb_staff"</span></div>
+                    <div>Attendu: <span class="expected">"11"</span></div>
+                </div>
+                
+                <div class="test-case">
+                    <h4>Test 3 : Clé inexistante</h4>
+                    <div class="json-string">{"name": "Test"}</div>
+                    <div>Clé: <span class="key">"missing"</span></div>
+                    <div>Attendu: <span class="expected">undefined/null</span></div>
+                </div>
+                
+                <div class="test-case">
+                    <h4>Test 4 : JSON complexe</h4>
+                    <div class="json-string">{"user": {"name": "John", "age": 30}, "active": true}</div>
+                    <div>Clé: <span class="key">"active"</span></div>
+                    <div>Attendu: <span class="expected">true</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="consoleOutput" class="console-output" style="display: none;">
+            <strong> Sortie console :</strong><br>
+            <div id="consoleContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

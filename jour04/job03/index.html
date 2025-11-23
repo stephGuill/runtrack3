@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job03 - Pokédex Filtrer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Pokédex Filtre</h1>
+            <p>Recherchez et filtrez vos Pokémon favoris</p>
+        </div>
+        
+        <div class="filter-section">
+            <h2 class="filter-title"> Critères de filtrage</h2>
+            <div class="filter-form">
+                <div class="form-group">
+                    <label for="idFilter"> ID du Pokémon :</label>
+                    <input type="text" id="idFilter" placeholder="Ex: 1, 25, 150..." />
+                </div>
+                
+                <div class="form-group">
+                    <label for="nameFilter"> Nom du Pokémon :</label>
+                    <input type="text" id="nameFilter" placeholder="Ex: Pikachu, Bulbasaur..." />
+                </div>
+                
+                <div class="form-group">
+                    <label for="typeFilter"> Type :</label>
+                    <select id="typeFilter">
+                        <option value="">-- Tous les types --</option>
+                        <!-- Les options seront remplies dynamiquement -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" class="filter-button" id="filterButton">
+                         Filtrer
+                    </button>
+                    <button type="button" class="filter-button clear-button" id="clearButton">
+                         Effacer
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="totalPokemon">---</div>
+                <div class="stat-label">Total Pokémon</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="filteredCount">---</div>
+                <div class="stat-label">Résultats</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="typesCount">---</div>
+                <div class="stat-label">Types différents</div>
+            </div>
+        </div>
+        
+        <div class="results-section">
+            <div class="results-header">
+                <h2 class="results-title" id="resultsTitle"> Résultats</h2>
+            </div>
+            
+            <div id="loadingMessage" class="loading">
+                Chargement des données Pokémon...
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;">
+            </div>
+            
+            <div id="resultsContainer" class="pokemon-grid">
+                <!-- Les résultats seront affichés ici -->
+            </div>
+            
+            <div id="noResults" class="no-results" style="display: none;">
+                <h3> Aucun résultat</h3>
+                <p>Aucun Pokémon ne correspond à vos critères de recherche.</p>
+                <p>Essayez de modifier vos filtres ou de les effacer.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
