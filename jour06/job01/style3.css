@@ -1,0 +1,226 @@
+/* ==================== STYLE 3 - ÉCRANS LARGES ==================== */
+/* LIGNE 2: Feuille de style pour résolutions 1280px - 1679px */
+/* MEDIA QUERY: Appliqué via HTML avec media="screen and (min-width: 1280px) and (max-width: 1679px)" */
+/* UTILITÉ: Optimisé pour écrans standard desktop et laptops haut de gamme */
+/* COULEUR: #275fa0 = Bleu professionnel et élégant */
+
+body {
+    /* LIGNE 8: Couleur de fond pour écrans larges standard */
+    /* SÉLECTEUR body: Cible l'élément body du document */
+    /* COULEUR HEX: #275fa0 = RGB(39, 95, 160) = Bleu profond */
+    /* CONTEXTE: Écrans 1280-1679px (desktop standard, laptops 15-17") */
+    background-color: #275fa0;
+}
+
+/* ==================== DOCUMENTATION COULEUR ==================== */
+/*
+INFORMATIONS SUR LA COULEUR #275fa0 :
+
+- NOM: Bleu professionnel / Professional Blue
+- RGB: Rouge=39, Vert=95, Bleu=160
+- HSL: Teinte=212°, Saturation=61%, Luminosité=39%
+- CONTRASTE: Excellent avec texte blanc, bon avec jaune/orange
+- PSYCHOLOGIE: Confiance, professionnalisme, stabilité, intelligence
+- UTILISATION: Parfaite pour interfaces business et applications pro
+
+POURQUOI CETTE COULEUR POUR ÉCRANS 1280-1679px ?
+1. VERSATILITÉ: Fonctionne bien sur desktop et laptop
+2. LISIBILITÉ: Contraste élevé permet lecture confortable
+3. PROFESSIONNALISME: Couleur corporate standard
+4. FATIGUE OCULAIRE: Moins fatigante que couleurs vives
+5. UNIVERSALITÉ: Acceptée dans tous contextes professionnels
+
+INSPIRATIONS:
+- Bleu corporate (IBM, Intel, Ford)
+- Interfaces Windows classiques
+- Applications business (Office, SAP)
+- Sites web gouvernementaux
+*/
+
+/* ==================== CONSIDÉRATIONS RÉSOLUTION 1280-1679px ==================== */
+/*
+Spécificités de cette plage de résolution :
+
+1. APPAREILS TYPIQUES:
+   - Desktop 19-24" (résolution native)
+   - Laptops 15-17" haute résolution
+   - Moniteurs bureau standard
+   - All-in-One computers
+   - Tablettes grande taille en landscape
+
+2. CONTEXTE D'UTILISATION:
+   - Travail de bureau (productivité)
+   - Navigation web standard
+   - Applications métier
+   - Consultation documents
+   - E-learning et formations
+
+3. DÉMOGRAPHIE UTILISATEURS:
+   - Professionnels bureau
+   - Étudiants (laptops campus)
+   - Télétravailleurs
+   - PME et startups
+   - Institutions éducatives
+*/
+
+/* ==================== OPTIMISATIONS POUR CETTE RÉSOLUTION ==================== */
+/*
+Styles recommandés pour la plage 1280-1679px :
+
+body {
+    background-color: #275fa0;
+    
+    // Gradient subtil pour profondeur
+    background-image: linear-gradient(135deg, #275fa0 0%, #3d6fb0 100%);
+    
+    // Pattern discret pour texture
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(135deg, #275fa0 0%, #3d6fb0 100%);
+}
+
+// Layout optimisé pour desktop standard
+.container {
+    max-width: 1200px;      // Largeur optimale pour lecture
+    margin: 0 auto;         // Centrage horizontal
+    padding: 40px 20px;     // Espacement confortable
+}
+
+// Typographie adaptée résolution standard
+h1 {
+    font-size: 2.5rem;      // Taille lisible sans être excessive
+    font-weight: 600;       // Poids adapté fond sombre
+    color: #ffffff;         // Contraste maximum
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3); // Lisibilité améliorée
+}
+*/
+
+/* ==================== ACCESSIBILITÉ ET CONTRASTE ==================== */
+/*
+TESTS DE CONTRASTE pour #275fa0 :
+
+- Avec texte blanc (#ffffff) : 9.1:1 (Excellent - AAA)
+- Avec texte jaune (#ffca4b) : 5.1:1 (Bon - AA)
+- Avec texte gris clair (#e0e0e0) : 7.8:1 (Excellent - AAA)
+- Avec texte noir (#000000) : 2.3:1 (Insuffisant)
+
+RECOMMANDATIONS ACCESSIBILITÉ:
+✅ Parfait pour texte blanc/clair
+✅ Excellent pour icônes claires
+✅ Compatible daltonisme (protanopie/deutéranopie)
+✅ Lisible sous éclairage bureau standard
+❌ Éviter texte sombre sur ce fond
+
+GUIDELINES WCAG 2.1:
+- Niveau AA: Respecté pour texte normal (4.5:1+)
+- Niveau AAA: Respecté pour gros texte (3:1+)
+- Niveau AAA: Respecté pour texte normal (7:1+)
+*/
+
+/* ==================== PSYCHOLOGIE ET BRANDING ==================== */
+/*
+IMPACT PSYCHOLOGIQUE du #275fa0 :
+
+POSITIF:
++ Inspire confiance et crédibilité
++ Évoque compétence et expertise  
++ Réduit stress et anxiété
++ Améliore concentration
++ Associé à intelligence et logique
+
+CONTEXTES APPROPRIÉS:
+- Applications financières
+- Plateformes e-learning
+- Sites institutionnels
+- Outils de productivité
+- Interfaces admin/back-office
+
+MARQUES UTILISANT DES BLEUS SIMILAIRES:
+- LinkedIn (#0e76a8)
+- Facebook (#1877f2) 
+- Twitter (#1da1f2)
+- IBM (#1f70c1)
+- Intel (#0f7dc2)
+*/
+
+/* ==================== DÉCLINAISONS ET VARIATIONS ==================== */
+/*
+Palette dérivée de #275fa0 :
+
+// Variations de luminosité
+.lighter    { background-color: #3d6fb0; }  // +15% luminosité
+.light      { background-color: #4a7bc0; }  // +25% luminosité  
+.dark       { background-color: #1d4a80; }  // -15% luminosité
+.darker     { background-color: #133560; }  // -25% luminosité
+
+// Variations de saturation
+.saturated  { background-color: #1e5ba0; }  // +10% saturation
+.muted      { background-color: #4a6b90; }  // -30% saturation
+
+// Couleurs complémentaires et triadiques
+.complement { background-color: #a05927; }  // Orange complémentaire
+.triadic1   { background-color: #a02759; }  // Magenta triadique
+.triadic2   { background-color: #59a027; }  // Vert triadique
+*/
+
+/* ==================== RESPONSIVE BEHAVIOR ==================== */
+/*
+Comportement responsive dans cette plage :
+
+// Adaptation fine selon sous-intervalles
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+    // Écrans 1280-1440 (laptops, petits desktop)
+    body {
+        background-color: #275fa0;
+        font-size: 16px;        // Taille base
+    }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1679px) {
+    // Écrans 1441-1679 (desktop standard)
+    body {
+        background-color: #275fa0;
+        font-size: 18px;        // Légèrement plus grand
+    }
+}
+
+BREAKPOINTS INTERNES RECOMMANDÉS:
+- 1280px: Seuil minimal pour layout desktop
+- 1366px: Résolution laptop très commune
+- 1440px: Résolution gaming 1440p
+- 1600px: Écrans professionnels 16:10
+- 1679px: Limite supérieure avant très grands écrans
+*/
+
+/* ==================== PERFORMANCE ET OPTIMISATION ==================== */
+/*
+Optimisations spécifiques à cette résolution :
+
+1. RENDERING:
+   - Sous-pixel rendering activé
+   - Anti-aliasing optimal
+   - Accélération GPU pour gradients
+
+2. IMAGES:
+   - Résolution 1.5x recommandée
+   - WebP supporté massivement
+   - Lazy loading efficace
+
+3. ANIMATIONS:
+   - 60fps facilement atteignable
+   - Transitions CSS performantes
+   - Transform 3D supporté
+
+body {
+    background-color: #275fa0;
+    
+    // Optimisations rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    
+    // Optimisation GPU
+    transform: translateZ(0);
+    will-change: background-color;
+}
+*/

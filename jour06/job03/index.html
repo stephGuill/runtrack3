@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design - Media Queries avec 4 Sections</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Système Responsive avec 4 Sections</h1>
+        <p>Redimensionnez la fenêtre pour voir les breakpoints en action</p>
+        <div class="resolution-info">
+            <span id="current-width"></span>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Section 1</h2>
+            <p>Cette section s'adapte selon la largeur d'écran :</p>
+            <ul>
+                <li><strong>≥ 1600px :</strong> Desktop large</li>
+                <li><strong>768px - 1599px :</strong> Desktop/Tablette</li>
+                <li><strong>≤ 767px :</strong> Mobile</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Section 2</h2>
+            <p>Couleur de fond par défaut : <code>#88c1d0</code></p>
+            <p>Les media queries modifient l'apparence selon la résolution.</p>
+            <div class="demo-content">
+                <div class="demo-box">Contenu adaptatif</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Section 3</h2>
+            <p>Breakpoints implémentés :</p>
+            <div class="breakpoint-info">
+                <div class="bp-item">
+                    <span class="bp-label">Large Desktop</span>
+                    <span class="bp-range">≥ 1600px</span>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-label">Desktop/Tablette</span>
+                    <span class="bp-range">768px - 1599px</span>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-label">Mobile</span>
+                    <span class="bp-range">≤ 767px</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Section 4</h2>
+            <p>Design responsive avec CSS3 Media Queries</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Flexibilité</h3>
+                    <p>Layout adaptatif</p>
+                </div>
+                <div class="feature">
+                    <h3>Performance</h3>
+                    <p>Optimisé mobile</p>
+                </div>
+                <div class="feature">
+                    <h3>Accessibilité</h3>
+                    <p>Multi-devices</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Responsive Design Demo</p>
+        <p>Largeur actuelle : <span id="width-display">Calcul en cours...</span></p>
+    </footer>
+
+    <script>
+        // Fonction pour afficher la largeur actuelle
+        function updateWidth() {
+            const width = window.innerWidth;
+            const widthDisplay = document.getElementById('width-display');
+            const currentWidth = document.getElementById('current-width');
+            
+            let breakpoint = '';
+            if (width >= 1600) {
+                breakpoint = 'Large Desktop (≥ 1600px)';
+            } else if (width >= 768) {
+                breakpoint = 'Desktop/Tablette (768px - 1599px)';
+            } else {
+                breakpoint = 'Mobile (≤ 767px)';
+            }
+            
+            if (widthDisplay) {
+                widthDisplay.textContent = `${width}px - ${breakpoint}`;
+            }
+            if (currentWidth) {
+                currentWidth.textContent = `Largeur actuelle : ${width}px`;
+            }
+        }
+
+        // Mise à jour au chargement et au redimensionnement
+        window.addEventListener('load', updateWidth);
+        window.addEventListener('resize', updateWidth);
+    </script>
+</body>
+</html>

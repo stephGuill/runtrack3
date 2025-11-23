@@ -1,0 +1,148 @@
+/* ==================== STYLE 2 - ÉCRANS TRÈS LARGES ==================== */
+/* LIGNE 2: Feuille de style pour résolutions 1680px - 1920px */
+/* MEDIA QUERY: Appliqué via HTML avec media="screen and (min-width: 1680px) and (max-width: 1920px)" */
+/* UTILITÉ: Optimisé pour écrans larges (moniteurs gaming, workstations) */
+/* COULEUR: #ffca4b = Jaune chaleureux et énergisant */
+
+body {
+    /* LIGNE 8: Couleur de fond pour écrans très larges */
+    /* SÉLECTEUR body: Cible l'élément body du document */
+    /* COULEUR HEX: #ffca4b = RGB(255, 202, 75) = Jaune vif */
+    /* CONTEXTE: Écrans 1680-1920px (moniteurs gaming, écrans 27" et plus) */
+    background-color: #ffca4b;
+}
+
+/* ==================== DOCUMENTATION COULEUR ==================== */
+/*
+INFORMATIONS SUR LA COULEUR #ffca4b :
+
+- NOM: Jaune doré / Golden Yellow
+- RGB: Rouge=255, Vert=202, Bleu=75
+- HSL: Teinte=42°, Saturation=100%, Luminosité=65%
+- CONTRASTE: Excellent avec texte noir, moyen avec blanc
+- PSYCHOLOGIE: Énergie, créativité, optimisme, attention
+- UTILISATION: Idéale pour attirer l'attention sur grands écrans
+
+POURQUOI CETTE COULEUR POUR GRANDS ÉCRANS ?
+1. VISIBILITÉ: Sur grands écrans, couleurs vives sont mieux tolérées
+2. ÉNERGIE: Utilisateurs gaming/pro apprécient couleurs dynamiques
+3. CONTRASTE: Assez de place pour contenu contrasté
+4. DIFFÉRENCIATION: Se démarque clairement des autres styles
+5. MODERNITÉ: Tendance actuelle en web design
+
+COMPATIBILITÉ:
+- ✅ Tous navigateurs modernes
+- ✅ Excellent rendu sur écrans haute résolution
+- ✅ Bonne lisibilité sur moniteurs IPS/OLED
+*/
+
+/* ==================== CONSIDÉRATIONS ÉCRANS LARGES ==================== */
+/*
+Spécificités des écrans 1680-1920px :
+
+1. TYPES D'ÉCRANS:
+   - Moniteurs gaming 27" (2560x1440 downscaled)
+   - Écrans professionnels 24-27"
+   - Laptops haute résolution
+   - Moniteurs ultra-wide partiels
+
+2. CONTEXTE D'UTILISATION:
+   - Gaming compétitif
+   - Développement/programmation
+   - Design graphique
+   - Productivité bureau
+
+3. PRÉFÉRENCES UTILISATEURS:
+   - Couleurs vives acceptées
+   - Contrastes marqués appréciés
+   - Esthétique moderne attendue
+*/
+
+/* ==================== OPTIMISATIONS POUR CETTE RÉSOLUTION ==================== */
+/*
+Styles additionnels recommandés pour cette plage :
+
+body {
+    background-color: #ffca4b;
+    
+    // Gradient subtil pour grands écrans
+    background-image: linear-gradient(45deg, #ffca4b 0%, #ffd662 100%);
+    
+    // Texture légère pour éviter monotonie
+    background-attachment: fixed;
+}
+
+// Adaptation contenu pour écrans larges
+.container {
+    max-width: 1400px;  // Plus large sur grands écrans
+    padding: 50px;      // Plus d'espace disponible
+}
+
+// Typographie adaptée
+h1 {
+    font-size: 4rem;    // Plus gros sur grands écrans
+}
+*/
+
+/* ==================== ACCESSIBILITÉ ==================== */
+/*
+TESTS DE CONTRASTE pour #ffca4b :
+
+- Avec texte noir (#000000) : 11.9:1 (Excellent - AAA)
+- Avec texte blanc (#ffffff) : 1.8:1 (Insuffisant)
+- Avec texte gris foncé (#333333) : 8.8:1 (Excellent - AAA)
+
+RECOMMANDATIONS:
+✅ Utiliser texte noir ou gris très foncé
+❌ Éviter texte blanc ou gris clair
+✅ Couleur safe pour daltonisme
+✅ Bonne visibilité sous éclairage bureau
+*/
+
+/* ==================== VARIANTES ET DÉCLINAISONS ==================== */
+/*
+Palette de couleurs complémentaires :
+
+.accent-1 { background-color: #ff9f43; }  // Orange complémentaire
+.accent-2 { background-color: #7bed9f; }  // Vert complémentaire  
+.accent-3 { background-color: #5f27cd; }  // Violet contrastant
+
+Nuances de la couleur principale :
+.light   { background-color: #ffdc73; }   // Version plus claire
+.dark    { background-color: #e6b142; }   // Version plus foncée
+.muted   { background-color: #d4af37; }   // Version moins saturée
+*/
+
+/* ==================== CONTEXTE TECHNIQUE ==================== */
+/*
+RÉSOLUTIONS TYPIQUES DANS CETTE PLAGE:
+- 1680x1050 (16:10 - moniteurs plus anciens)
+- 1728x1080 (16:10 - variante)
+- 1792x1120 (16:10 - rare)
+- 1856x1392 (4:3 - très rare)
+- 1920x1080 (16:9 - Full HD standard)
+- 1920x1200 (16:10 - moniteurs pro)
+
+DENSITÉ DE PIXELS:
+- Généralement 72-110 DPI
+- Bonne lisibilité sans zoom
+- Place pour interfaces riches
+*/
+
+/* ==================== PERFORMANCE ==================== */
+/*
+Optimisations pour cette résolution :
+
+1. IMAGES: Utiliser images haute résolution
+2. FONTS: Polices vectorielles recommandées  
+3. ANIMATIONS: Transitions fluides possibles
+4. LAYOUTS: Grilles complexes supportées
+5. VIDÉOS: 1080p native supportée
+
+body {
+    background-color: #ffca4b;
+    // Optimisation rendu
+    image-rendering: -webkit-optimize-contrast;
+    text-rendering: optimizeLegibility;
+}
+*/

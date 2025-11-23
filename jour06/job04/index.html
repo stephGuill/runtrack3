@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation - Hamburger Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVIGATION HEADER AVEC MENU HAMBURGER -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Mon Site</h1>
+            </div>
+            
+            <!-- NAVIGATION DESKTOP -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#presentation" class="nav-link">Présentation</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- HAMBURGER BUTTON (visible uniquement sur mobile ≤767px) -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu de navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        
+        <!-- NAVIGATION MOBILE (masquée par défaut) -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li><a href="#accueil" class="mobile-nav-link">Accueil</a></li>
+                <li><a href="#presentation" class="mobile-nav-link">Présentation</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL EXISTANT -->
+    <div class="content-header">
+        <h2>Système Responsive avec Navigation</h2>
+        <p>Redimensionnez la fenêtre pour voir le menu hamburger en action</p>
+        <div class="resolution-info">
+            <span id="current-width"></span>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section Accueil -->
+        <section class="section" id="accueil">
+            <h2> Accueil</h2>
+            <p>Bienvenue sur cette page de démonstration responsive !</p>
+            <ul>
+                <li><strong>Desktop (≥ 1600px) :</strong> Navigation horizontale visible</li>
+                <li><strong>Tablette (768px - 1599px) :</strong> Navigation horizontale visible</li>
+                <li><strong>Mobile (≤ 767px) :</strong> Menu hamburger activé</li>
+            </ul>
+            <div class="demo-content">
+                <div class="demo-box">Contenu section Accueil</div>
+            </div>
+        </section>
+
+        <!-- Section Présentation -->
+        <section class="section" id="presentation">
+            <h2> Présentation</h2>
+            <p>Cette section présente les fonctionnalités du menu responsive.</p>
+            <div class="breakpoint-info">
+                <div class="bp-item">
+                    <span class="bp-label">Navigation Desktop</span>
+                    <span class="bp-range">Liens visibles</span>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-label">Navigation Mobile</span>
+                    <span class="bp-range">Menu hamburger</span>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-label">Interaction</span>
+                    <span class="bp-range">Toggle au clic</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section class="section" id="contact">
+            <h2> Contact</h2>
+            <p>Fonctionnalités du menu hamburger :</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Responsive</h3>
+                    <p>S'adapte à la taille d'écran</p>
+                </div>
+                <div class="feature">
+                    <h3>Interactif</h3>
+                    <p>Toggle smooth au clic</p>
+                </div>
+                <div class="feature">
+                    <h3>Accessible</h3>
+                    <p>Support clavier et lecteurs d'écran</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section démonstration supplémentaire -->
+        <section class="section">
+            <h2>🔧 Test du Menu</h2>
+            <p>Testez le comportement responsive du menu :</p>
+            <div class="test-instructions">
+                <div class="instruction">
+                    <strong>1. Desktop/Tablette :</strong> Les liens sont visibles dans la barre de navigation
+                </div>
+                <div class="instruction">
+                    <strong>2. Mobile :</strong> Seul le bouton hamburger (☰) est visible
+                </div>
+                <div class="instruction">
+                    <strong>3. Clic sur hamburger :</strong> Le menu apparaît/disparaît avec animation
+                </div>
+                <div class="instruction">
+                    <strong>4. Clic sur lien :</strong> Le menu se ferme automatiquement
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Navigation Responsive Demo</p>
+        <p>Largeur actuelle : <span id="width-display">Calcul en cours...</span></p>
+        <p>État menu : <span id="menu-status">Fermé</span></p>
+    </footer>
+
+    <script>
+        // ================== GESTION AFFICHAGE LARGEUR ==================
+        function updateWidth() {
+            const width = window.innerWidth;
+            const widthDisplay = document.getElementById('width-display');
+            const currentWidth = document.getElementById('current-width');
+            
+            let breakpoint = '';
+            if (width >= 1600) {
+                breakpoint = 'Large Desktop (≥ 1600px)';
+            } else if (width >= 768) {
+                breakpoint = 'Desktop/Tablette (768px - 1599px)';
+            } else {
+                breakpoint = 'Mobile (≤ 767px)';
+            }
+            
+            if (widthDisplay) {
+                widthDisplay.textContent = `${width}px - ${breakpoint}`;
+            }
+            if (currentWidth) {
+                currentWidth.textContent = `Largeur actuelle : ${width}px`;
+            }
+        }
+
+        // ================== GESTION MENU HAMBURGER ==================
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const menuStatus = document.getElementById('menu-status');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        let isMenuOpen = false;
+
+        // Fonction pour toggle du menu
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            // Toggle classes CSS
+            hamburgerBtn.classList.toggle('active', isMenuOpen);
+            mobileNav.classList.toggle('active', isMenuOpen);
+            
+            // Mise à jour statut
+            if (menuStatus) {
+                menuStatus.textContent = isMenuOpen ? 'Ouvert' : 'Fermé';
+            }
+            
+            // Accessibilité
+            hamburgerBtn.setAttribute('aria-expanded', isMenuOpen);
+        }
+
+        // Fonction pour fermer le menu
+        function closeMenu() {
+            if (isMenuOpen) {
+                isMenuOpen = false;
+                hamburgerBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                
+                if (menuStatus) {
+                    menuStatus.textContent = 'Fermé';
+                }
+                
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Event listeners
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', toggleMenu);
+        }
+
+        // Fermer le menu quand on clique sur un lien mobile
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Fermer le menu si on clique en dehors
+        document.addEventListener('click', function(event) {
+            if (isMenuOpen && !event.target.closest('.main-header')) {
+                closeMenu();
+            }
+        });
+
+        // Fermer le menu avec la touche Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        });
+
+        // Fermer le menu automatiquement si on redimensionne vers desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767 && isMenuOpen) {
+                closeMenu();
+            }
+            updateWidth();
+        });
+
+        // Initialisation
+        window.addEventListener('load', function() {
+            updateWidth();
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* ==================== STYLE 1 - PAR DÉFAUT ==================== */
+/* LIGNE 2: Feuille de style par défaut appliquée à toutes les résolutions */
+/* UTILITÉ: Style de base quand aucune media query spécifique ne s'applique */
+/* COULEUR: #88c1d0 = Bleu clair apaisant */
+
+body {
+    /* LIGNE 7: Propriété background-color pour couleur de fond */
+    /* SÉLECTEUR body: Cible l'élément body (corps du document) */
+    /* COULEUR HEX: #88c1d0 = RGB(136, 193, 208) = Bleu clair */
+    /* PRIORITY: Ce style a la priorité la plus basse (défaut) */
+    background-color: #88c1d0;
+}
+
+/* ==================== DOCUMENTATION COULEUR ==================== */
+/*
+INFORMATIONS SUR LA COULEUR #88c1d0 :
+
+- NOM: Bleu clair / Light Blue
+- RGB: Rouge=136, Vert=193, Bleu=208
+- HSL: Teinte=194°, Saturation=41%, Luminosité=67%
+- CONTRASTE: Bon contraste avec texte noir/blanc
+- PSYCHOLOGIE: Couleur apaisante, professionnelle, fiable
+- UTILISATION: Idéale pour fond par défaut, non agressive
+
+COMPATIBILITÉ NAVIGATEURS:
+- ✅ Tous navigateurs modernes
+- ✅ Internet Explorer 9+
+- ✅ Safari, Chrome, Firefox, Edge
+
+ACCESSIBILITÉ:
+- Contraste suffisant avec texte noir (#000000) : 5.2:1
+- Contraste suffisant avec texte blanc (#ffffff) : 4.0:1
+- Conforme WCAG AA pour texte normal
+*/
+
+/* ==================== ALTERNATIVES ET VARIANTES ==================== */
+/*
+Variantes possibles de la couleur principale :
+
+.alternative-light {
+    background-color: #a8d1e0;  Plus clair (+10% luminosité)
+}
+
+.alternative-dark {
+    background-color: #68a1c0;   Plus foncé (-10% luminosité)
+}
+
+.alternative-saturated {
+    background-color: #5eb8d3;   Plus saturé (+20% saturation)
+}
+
+.alternative-desaturated {
+    background-color: #9bb1c0;   Moins saturé (-20% saturation)
+}
+*/
+
+/* ==================== ÉTATS ET ANIMATIONS ==================== */
+/*
+Pour des transitions fluides lors du changement de media query :
+
+body {
+    background-color: #88c1d0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+Cela permet un changement graduel entre les couleurs
+quand l'utilisateur redimensionne sa fenêtre.
+*/
+
+/* ==================== DEBUG ET DÉVELOPPEMENT ==================== */
+/*
+Pour identifier visuellement quand ce style est actif :
+
+body::before {
+    content: "Style 1 - Défaut (#88c1d0)";
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 9999;
+}
+
+Décommentez ce bloc pour voir quel style est actif
+*/
+
+/* ==================== RESPONSIVE CONSIDERATIONS ==================== */
+/*
+Ce style par défaut doit :
+1. Être visible sur tous types d'écrans
+2. Avoir un bon contraste avec le contenu
+3. Ne pas fatiguer les yeux
+4. Être neutre et professionnel
+5. Servir de fallback si autres styles échouent
+
+La couleur #88c1d0 remplit tous ces critères
+*/

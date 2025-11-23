@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- LIGNE 4: Métadonnées de base du document -->
+    <!-- CHARSET: Encodage UTF-8 pour caractères internationaux -->
+    <meta charset="UTF-8">
+    
+    <!-- LIGNE 7: Configuration viewport pour responsive design -->
+    <!-- VIEWPORT: Contrôle affichage sur appareils mobiles -->
+    <!-- width=device-width: Largeur = largeur de l'écran -->
+    <!-- initial-scale=1.0: Zoom initial à 100% -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- LIGNE 12: Titre affiché dans l'onglet du navigateur -->
+    <title>Responsive Design - Media Queries CSS</title>
+    
+    <!-- ==================== LIENS CSS AVEC MEDIA QUERIES ==================== -->
+    
+    <!-- LIGNE 16: Style par défaut (style1.css) -->
+    <!-- LINK: Liaison vers feuille de style externe -->
+    <!-- rel="stylesheet": Type de relation = feuille de style -->
+    <!-- href: Chemin vers le fichier CSS -->
+    <!-- MEDIA QUERY: all = tous les médias par défaut -->
+    <link rel="stylesheet" href="style1.css" media="all">
+    
+    <!-- LIGNE 23: Style pour écrans très larges (1680px - 1920px) -->
+    <!-- MEDIA QUERY: screen = écrans uniquement -->
+    <!-- min-width: 1680px = largeur minimum 1680 pixels -->
+    <!-- max-width: 1920px = largeur maximum 1920 pixels -->
+    <!-- LOGIQUE: ET entre les deux conditions -->
+    <link rel="stylesheet" href="style2.css" media="screen and (min-width: 1680px) and (max-width: 1920px)">
+    
+    <!-- LIGNE 29: Style pour écrans moyens-larges (1280px - 1679px) -->
+    <!-- RANGE: Entre 1280px inclus et 1679px inclus -->
+    <!-- NOTE: max-width: 1679px pour éviter conflit avec style2 -->
+    <link rel="stylesheet" href="style3.css" media="screen and (min-width: 1280px) and (max-width: 1679px)">
+    
+    <!-- LIGNE 34: Style pour petits écrans (moins de 1280px) -->
+    <!-- max-width: 1279px = largeur maximum 1279 pixels -->
+    <!-- CONDITION: Tous écrans inférieurs à 1280px -->
+    <link rel="stylesheet" href="style4.css" media="screen and (max-width: 1279px)">
+    
+    <style>
+        /* ==================== STYLES COMMUNS ==================== */
+        /* LIGNE 40: Styles de base appliqués à toutes les résolutions */
+        
+        * {
+            /* LIGNE 43: Reset CSS universel */
+            /* SÉLECTEUR *: Tous les éléments HTML */
+            /* margin: 0: Supprime marges par défaut */
+            /* padding: 0: Supprime espacements internes par défaut */
+            /* box-sizing: border-box: Inclut bordures dans largeur totale */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            /* LIGNE 51: Styles du corps du document */
+            /* font-family: Police de caractères avec fallbacks */
+            /* min-height: 100vh: Hauteur minimum = hauteur de la fenêtre */
+            /* display: flex: Conteneur flexible */
+            /* justify-content: center: Centrage horizontal */
+            /* align-items: center: Centrage vertical */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+        
+        .container {
+            /* LIGNE 63: Conteneur principal */
+            /* background: Fond blanc semi-transparent */
+            /* padding: Espacement interne */
+            /* border-radius: Coins arrondis */
+            /* box-shadow: Ombre portée pour effet de profondeur */
+            /* text-align: center: Centrage du texte */
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+        }
+        
+        h1 {
+            /* LIGNE 75: Styles du titre principal */
+            /* color: Couleur du texte */
+            /* font-size: Taille de police */
+            /* margin-bottom: Marge inférieure */
+            /* font-weight: Épaisseur de police (300 = light) */
+            color: #333;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .description {
+            /* LIGNE 84: Styles de la description */
+            /* font-size: Taille de police */
+            /* line-height: Hauteur de ligne pour lisibilité */
+            /* margin-bottom: Espacement inférieur */
+            /* color: Couleur grise pour texte secondaire */
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .resolution-info {
+            /* LIGNE 93: Styles pour informations résolution */
+            /* background: Fond coloré */
+            /* padding: Espacement interne */
+            /* border-radius: Coins arrondis */
+            /* font-weight: bold: Texte en gras */
+            /* font-size: Taille de police */
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+        
+        .features {
+            /* LIGNE 106: Styles pour liste des fonctionnalités */
+            /* text-align: left: Alignement à gauche */
+            /* margin: Marges verticales */
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .features ul {
+            /* LIGNE 112: Styles pour liste à puces */
+            /* list-style-type: none: Supprime puces par défaut */
+            /* padding: 0: Supprime indentation */
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .features li {
+            /* LIGNE 118: Styles pour éléments de liste */
+            /* padding: Espacement interne */
+            /* margin: Marge inférieure */
+            /* background: Fond coloré */
+            /* border-left: Bordure gauche colorée */
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .features li:before {
+            /* LIGNE 128: Pseudo-élément pour icône */
+            /* content: Contenu généré (émoji check) */
+            /* margin-right: Espacement à droite */
+            /* color: Couleur verte pour validation */
+            content: "✅ ";
+            margin-right: 10px;
+            color: #27ae60;
+        }
+        
+        /* ==================== STYLES RESPONSIVE ADDITIONNELS ==================== */
+        
+        /* LIGNE 137: Media query pour très petits écrans */
+        @media screen and (max-width: 600px) {
+            /* MEDIA QUERY: max-width = largeur maximum */
+            /* CONDITION: Écrans de 600px et moins (mobiles) */
+            
+            h1 {
+                /* LIGNE 142: Réduction taille titre sur mobile */
+                font-size: 2rem;
+            }
+            
+            .container {
+                /* LIGNE 146: Réduction padding sur mobile */
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .description {
+                /* LIGNE 151: Réduction taille texte sur mobile */
+                font-size: 1rem;
+            }
+        }
+        
+        /* LIGNE 155: Media query pour tablettes */
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            /* RANGE: Entre 601px et 1024px (tablettes) */
+            
+            h1 {
+                /* LIGNE 159: Taille intermédiaire pour tablettes */
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                /* LIGNE 163: Largeur adaptée tablettes */
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== CONTENU HTML ==================== -->
+    
+    <!-- LIGNE 171: Conteneur principal -->
+    <div class="container">
+        <!-- LIGNE 173: Titre principal de la page -->
+        <h1> Responsive Design</h1>
+        
+        <!-- LIGNE 176: Description du projet -->
+        <div class="description">
+            Cette page utilise des <strong>media queries CSS</strong> pour adapter 
+            automatiquement la couleur de fond selon la largeur de votre écran.
+            Redimensionnez votre navigateur pour voir les changements !
+        </div>
+        
+        <!-- LIGNE 182: Affichage information résolution courante -->
+        <div class="resolution-info" id="resolutionInfo">
+             Résolution détectée : <span id="currentResolution"></span>
+        </div>
+        
+        <!-- LIGNE 186: Liste des fonctionnalités -->
+        <div class="features">
+            <h3> Fonctionnalités implémentées :</h3>
+            <ul>
+                <!-- LIGNE 189: Liste des couleurs par résolution -->
+                <li><strong>Style 1 (Défaut)</strong> : Fond bleu clair #88c1d0</li>
+                <li><strong>Style 2 (1680-1920px)</strong> : Fond jaune #ffca4b</li>
+                <li><strong>Style 3 (1280-1679px)</strong> : Fond bleu foncé #275fa0</li>
+                <li><strong>Style 4 (&lt;1280px)</strong> : Fond blanc #ffffff</li>
+                <li><strong>Responsive Design</strong> : Adaptation automatique du contenu</li>
+                <li><strong>Transitions CSS</strong> : Changements fluides entre états</li>
+                <li><strong>Détection JavaScript</strong> : Affichage résolution en temps réel</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // ==================== JAVASCRIPT POUR DÉTECTION RÉSOLUTION ====================
+        
+        /**
+         * LIGNE 203: Fonction de mise à jour affichage résolution
+         * FUNCTION: updateResolutionInfo - affiche résolution courante
+         * UTILITÉ: Feedback visuel pour utilisateur
+         */
+        function updateResolutionInfo() {
+            // LIGNE 208: Récupération largeur fenêtre
+            // window.innerWidth: Largeur interne de la fenêtre (sans scrollbars)
+            // VARIABLE: Stockage valeur pour utilisation multiple
+            const width = window.innerWidth;
+            
+            // LIGNE 212: Récupération élément DOM pour affichage
+            // document.getElementById(): Sélection élément par ID
+            // VARIABLE: Référence vers élément span
+            const resolutionElement = document.getElementById('currentResolution');
+            
+            // LIGNE 216: Détermination style actif selon largeur
+            // VARIABLE: Stockage du style détecté
+            let currentStyle = '';
+            
+            // LIGNE 220: Structure conditionnelle pour classification résolution
+            // IF/ELSE IF/ELSE: Chaîne de conditions mutuellement exclusives
+            if (width >= 1680 && width <= 1920) {
+                // LIGNE 222: Condition pour style 2
+                // OPÉRATEUR &&: ET logique (les deux conditions doivent être vraies)
+                // RANGE: Entre 1680px inclus et 1920px inclus
+                currentStyle = 'Style 2 - Très large (Jaune)';
+            } else if (width >= 1280 && width < 1680) {
+                // LIGNE 226: Condition pour style 3
+                // RANGE: Entre 1280px inclus et 1679px inclus
+                currentStyle = 'Style 3 - Large (Bleu foncé)';
+            } else if (width < 1280) {
+                // LIGNE 230: Condition pour style 4
+                // OPÉRATEUR <: Strictement inférieur à 1280px
+                currentStyle = 'Style 4 - Petit (Blanc)';
+            } else {
+                // LIGNE 234: Condition par défaut (style 1)
+                // ELSE: Tous les autres cas (>1920px)
+                currentStyle = 'Style 1 - Par défaut (Bleu clair)';
+            }
+            
+            // LIGNE 238: Mise à jour contenu HTML
+            // textContent: Propriété pour modifier texte d'un élément
+            // TEMPLATE LITERAL: Utilisation de backticks pour interpolation
+            resolutionElement.textContent = `${width}px - ${currentStyle}`;
+        }
+        
+        // ==================== ÉVÉNEMENTS ET INITIALISATION ====================
+        
+        // LIGNE 244: Mise à jour initiale au chargement page
+        // DOMContentLoaded: Événement déclenché quand HTML est entièrement chargé
+        // addEventListener(): Méthode pour écouter événements
+        document.addEventListener('DOMContentLoaded', updateResolutionInfo);
+        
+        // LIGNE 248: Mise à jour lors redimensionnement fenêtre
+        // window.addEventListener(): Écoute événements sur objet window
+        // 'resize': Événement déclenché quand taille fenêtre change
+        // updateResolutionInfo: Fonction callback (sans parenthèses!)
+        window.addEventListener('resize', updateResolutionInfo);
+        
+        // LIGNE 253: Mise à jour périodique (optionnel)
+        // setInterval(): Exécution répétée d'une fonction
+        // 1000: Intervalle en millisecondes (1 seconde)
+        // UTILITÉ: Assure mise à jour même si événements ratés
+        setInterval(updateResolutionInfo, 1000);
+        
+        // ==================== FONCTIONS UTILITAIRES DEBUG ====================
+        
+        /**
+         * LIGNE 260: Fonction globale pour test depuis console
+         * FUNCTION: testMediaQueries - affiche informations debug
+         * UTILITÉ: Accessible depuis DevTools pour debugging
+         */
+        window.testMediaQueries = function() {
+            // LIGNE 265: Log informations dans console
+            console.log(' Informations Media Queries:');
+            console.log('Largeur fenêtre:', window.innerWidth + 'px');
+            console.log('Hauteur fenêtre:', window.innerHeight + 'px');
+            
+            // LIGNE 269: Test des media queries via JavaScript
+            // window.matchMedia(): API pour tester media queries
+            // matches: Propriété boolean indiquant si query correspond
+            console.log('Style 2 actif:', window.matchMedia('(min-width: 1680px) and (max-width: 1920px)').matches);
+            console.log('Style 3 actif:', window.matchMedia('(min-width: 1280px) and (max-width: 1679px)').matches);
+            console.log('Style 4 actif:', window.matchMedia('(max-width: 1279px)').matches);
+        };
+        
+        // LIGNE 276: Message d'accueil dans console
+        console.log(' Responsive Design chargé ! Tapez testMediaQueries() pour debug.');
+    </script>
+</body>
+</html>

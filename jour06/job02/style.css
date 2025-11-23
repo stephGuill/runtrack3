@@ -1,0 +1,509 @@
+/* ==================== STYLE CSS AVEC MEDIA QUERIES ==================== */
+/* LIGNE 2: Feuille de style unique pour gestion responsive design */
+/* UTILITÉ: Centralise toutes les règles CSS et media queries */
+
+/* ==================== STYLES DE BASE ==================== */
+/* LIGNE 6: Reset CSS et styles de base pour tous éléments */
+
+* {
+    /* LIGNE 9: Reset universel pour cohérence navigateurs */
+    /* SÉLECTEUR *: Applique à tous éléments HTML */
+    /* margin: 0: Supprime marges par défaut */
+    /* padding: 0: Supprime espacements internes par défaut */
+    /* box-sizing: border-box: Inclut bordures/padding dans largeur totale */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* LIGNE 17: Styles de base pour le corps du document */
+    /* font-family: Pile de polices avec fallbacks */
+    /* min-height: 100vh: Hauteur minimum = hauteur viewport */
+    /* display: flex: Conteneur flexible pour centrage */
+    /* justify-content: center: Centrage horizontal */
+    /* align-items: center: Centrage vertical */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    
+    /* LIGNE 27: COULEUR DE FOND PAR DÉFAUT */
+    /* PROPRIÉTÉ: background-color avec couleur par défaut */
+    /* COULEUR: #88c1d0 = RGB(136, 193, 208) = Bleu clair apaisant */
+    /* PRIORITÉ: Cette règle a la priorité la plus basse (défaut) */
+    background-color: #88c1d0;
+    
+    /* LIGNE 32: Transition fluide pour changements de couleur */
+    /* transition: Propriété pour animations CSS */
+    /* background-color: Propriété animée */
+    /* 0.3s: Durée transition (300 millisecondes) */
+    /* ease: Courbe d'animation (démarrage lent → rapide → ralentissement) */
+    transition: background-color 0.3s ease;
+}
+
+/* ==================== STYLES DU CONTENU ==================== */
+
+.container {
+    /* LIGNE 41: Conteneur principal pour contenu */
+    /* background: Fond blanc semi-transparent */
+    /* padding: Espacement interne généreux */
+    /* border-radius: Coins arrondis pour design moderne */
+    /* box-shadow: Ombre portée pour effet profondeur */
+    /* max-width: Largeur maximum pour lisibilité */
+    /* width: Largeur responsive (90% de l'écran disponible) */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+}
+
+h1 {
+    /* LIGNE 53: Styles du titre principal */
+    /* color: Couleur du texte (gris foncé) */
+    /* font-size: Taille police (3rem = 3 × taille racine) */
+    /* margin-bottom: Marge inférieure pour espacement */
+    /* font-weight: Épaisseur police (300 = light) */
+    color: #333;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.description {
+    /* LIGNE 62: Styles pour description principale */
+    /* font-size: Taille police (1.2rem = 120% taille racine) */
+    /* line-height: Hauteur ligne pour lisibilité */
+    /* margin-bottom: Espacement inférieur */
+    /* color: Couleur grise pour texte secondaire */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.resolution-display {
+    /* LIGNE 71: Styles pour affichage résolution */
+    /* background: Dégradé linéaire pour effet moderne */
+    /* color: Texte blanc pour contraste */
+    /* padding: Espacement interne */
+    /* border-radius: Coins arrondis */
+    /* font-weight: bold: Texte en gras pour lisibilité */
+    /* font-size: Taille légèrement agrandie */
+    /* margin: Marges verticales */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 20px 0;
+}
+
+.breakpoints-info {
+    /* LIGNE 84: Styles pour section informations breakpoints */
+    /* text-align: left: Alignement gauche pour lisibilité */
+    /* margin: Marges verticales */
+    /* background: Fond coloré très léger */
+    /* padding: Espacement interne */
+    /* border-radius: Coins arrondis */
+    text-align: left;
+    margin: 30px 0;
+    background: rgba(102, 126, 234, 0.05);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.breakpoints-info h3 {
+    /* LIGNE 95: Styles titre section breakpoints */
+    /* text-align: center: Centrage du titre */
+    /* margin-bottom: Espacement inférieur */
+    /* color: Couleur du titre */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.breakpoints-list {
+    /* LIGNE 103: Styles pour liste des breakpoints */
+    /* list-style: none: Supprime puces par défaut */
+    /* padding: 0: Supprime indentation */
+    list-style: none;
+    padding: 0;
+}
+
+.breakpoints-list li {
+    /* LIGNE 109: Styles pour éléments de liste breakpoints */
+    /* padding: Espacement interne */
+    /* margin-bottom: Marge inférieure entre éléments */
+    /* background: Fond blanc pour contraste */
+    /* border-left: Bordure gauche colorée */
+    /* border-radius: Coins arrondis */
+    /* display: flex: Disposition flexible */
+    /* align-items: center: Alignement vertical centré */
+    /* transition: Animation pour effets hover et active */
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: white;
+    border-left: 5px solid #667eea;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.breakpoints-list li.active {
+    /* LIGNE 124: Styles pour élément actif (breakpoint courant) */
+    /* background: Fond vert clair pour indication */
+    /* border-left-color: Bordure verte pour cohérence */
+    /* transform: scale: Légère augmentation taille */
+    /* box-shadow: Ombre plus marquée */
+    background: rgba(76, 175, 80, 0.1);
+    border-left-color: #4caf50;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+.color-sample {
+    /* LIGNE 134: Styles pour échantillons de couleur */
+    /* display: inline-block: Élément bloc en ligne */
+    /* width/height: Dimensions carrées */
+    /* border-radius: Forme circulaire */
+    /* margin-right: Espacement à droite */
+    /* border: Bordure pour visibilité */
+    /* vertical-align: middle: Alignement vertical */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #ddd;
+    vertical-align: middle;
+}
+
+/* LIGNE 146: Couleurs spécifiques pour échantillons */
+.default-color { background-color: #88c1d0; }  /* Bleu clair par défaut */
+.large-color { background-color: #ffca4b; }    /* Jaune écrans larges */
+.medium-color { background-color: #275fa0; }   /* Bleu foncé écrans moyens */
+.small-color { background-color: #ffffff; border-color: #333; } /* Blanc petits écrans */
+
+.test-zone, .technical-info {
+    /* LIGNE 152: Styles pour sections test et technique */
+    /* margin: Marges verticales */
+    /* padding: Espacement interne */
+    /* background: Fond légèrement coloré */
+    /* border-radius: Coins arrondis */
+    /* text-align: center: Centrage du contenu */
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 193, 75, 0.05);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.test-buttons {
+    /* LIGNE 162: Conteneur pour boutons de test */
+    /* display: flex: Disposition flexible */
+    /* gap: Espacement entre éléments */
+    /* justify-content: center: Centrage horizontal */
+    /* flex-wrap: wrap: Retour ligne si nécessaire */
+    /* margin-top: Marge supérieure */
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.test-buttons button {
+    /* LIGNE 172: Styles pour boutons de test */
+    /* padding: Espacement interne généreux */
+    /* background: Dégradé coloré */
+    /* color: Texte blanc */
+    /* border: none: Supprime bordure par défaut */
+    /* border-radius: Coins arrondis */
+    /* cursor: pointer: Curseur main au survol */
+    /* font-size: Taille police */
+    /* font-weight: bold: Texte gras */
+    /* transition: Animation pour interactions */
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.test-buttons button:hover {
+    /* LIGNE 188: Effet survol boutons */
+    /* transform: translateY: Déplacement vertical */
+    /* box-shadow: Ombre plus marquée */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.info-grid {
+    /* LIGNE 194: Grille pour informations techniques */
+    /* display: grid: Système de grille CSS */
+    /* grid-template-columns: repeat(2, 1fr): 2 colonnes égales */
+    /* gap: Espacement entre cellules */
+    /* margin-top: Marge supérieure */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-item {
+    /* LIGNE 203: Styles pour éléments d'information */
+    /* background: Fond blanc */
+    /* padding: Espacement interne */
+    /* border-radius: Coins arrondis */
+    /* border-left: Bordure gauche colorée */
+    /* text-align: left: Alignement gauche */
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    text-align: left;
+}
+
+/* ==================== MEDIA QUERIES RESPONSIVE ==================== */
+/* LIGNE 214: Section des media queries pour adaptation responsive */
+
+/* LIGNE 216: MEDIA QUERY POUR ÉCRANS TRÈS LARGES (1680px - 1920px) */
+@media screen and (min-width: 1680px) and (max-width: 1920px) {
+    /* @media: Règle CSS conditionnelle */
+    /* screen: Type de média (écrans, pas impression) */
+    /* min-width: 1680px: Largeur minimum 1680 pixels */
+    /* max-width: 1920px: Largeur maximum 1920 pixels */
+    /* AND: Opérateur logique (les deux conditions doivent être vraies) */
+    
+    body {
+        /* LIGNE 223: Couleur de fond pour écrans très larges */
+        /* PROPRIÉTÉ: background-color pour couleur d'arrière-plan */
+        /* COULEUR: #ffca4b = RGB(255, 202, 75) = Jaune vif énergisant */
+        /* CONTEXTE: Moniteurs gaming, workstations, écrans 27" et plus */
+        /* PSYCHOLOGIE: Énergie, créativité, modernité */
+        background-color: #ffca4b;
+    }
+}
+
+/* LIGNE 230: MEDIA QUERY POUR ÉCRANS LARGES (1280px - 1679px) */
+@media screen and (min-width: 1280px) and (max-width: 1679px) {
+    /* RANGE: Entre 1280px inclus et 1679px inclus */
+    /* APPAREILS: Desktop standard, laptops 15-17", moniteurs bureau */
+    /* UTILISATION: Travail bureau, navigation web standard, productivité */
+    
+    body {
+        /* LIGNE 236: Couleur de fond pour écrans larges standard */
+        /* COULEUR: #275fa0 = RGB(39, 95, 160) = Bleu professionnel */
+        /* CONTEXTE: Environnement professionnel, applications métier */
+        /* PSYCHOLOGIE: Confiance, stabilité, professionnalisme */
+        background-color: #275fa0;
+    }
+}
+
+/* LIGNE 243: MEDIA QUERY POUR PETITS ÉCRANS (< 1280px) */
+@media screen and (max-width: 1279px) {
+    /* max-width: 1279px: Largeur maximum 1279 pixels */
+    /* APPAREILS: Tablettes, petits laptops, mobiles landscape */
+    /* CONTRAINTES: Espace limité, autonomie critique, lisibilité prioritaire */
+    
+    body {
+        /* LIGNE 249: Couleur de fond pour petits écrans */
+        /* COULEUR: #ffffff = RGB(255, 255, 255) = Blanc pur */
+        /* AVANTAGES: Lisibilité maximale, économie énergie, convention UX */
+        /* ACCESSIBILITÉ: Contraste optimal avec texte noir */
+        background-color: #ffffff;
+    }
+    
+    /* LIGNE 255: Adaptations layout pour petits écrans */
+    .container {
+        /* padding: Réduction espacement interne */
+        /* width: Augmentation largeur utilisée */
+        padding: 20px;
+        width: 95%;
+    }
+    
+    h1 {
+        /* LIGNE 261: Réduction taille titre sur petits écrans */
+        /* font-size: 2rem = 200% taille racine (plus petit) */
+        font-size: 2rem;
+    }
+    
+    .info-grid {
+        /* LIGNE 266: Passage en colonne unique sur petits écrans */
+        /* grid-template-columns: 1fr = Une seule colonne */
+        grid-template-columns: 1fr;
+    }
+    
+    .test-buttons {
+        /* LIGNE 271: Adaptation boutons pour mobile */
+        /* flex-direction: column: Disposition verticale */
+        /* gap: Réduction espacement */
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .test-buttons button {
+        /* LIGNE 277: Boutons pleine largeur sur mobile */
+        /* width: 100%: Pleine largeur disponible */
+        width: 100%;
+    }
+}
+
+/* ==================== MEDIA QUERIES ADDITIONNELLES ==================== */
+/* LIGNE 283: Media queries supplémentaires pour optimisation fine */
+
+/* LIGNE 285: Adaptation pour très petits écrans mobiles */
+@media screen and (max-width: 600px) {
+    /* CONTEXTE: Smartphones en portrait, petites tablettes */
+    
+    .container {
+        /* LIGNE 289: Réduction maximale espacement mobile */
+        /* padding: Espacement minimal */
+        /* margin: Suppression marges */
+        padding: 15px;
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
+    
+    h1 {
+        /* LIGNE 296: Taille titre adaptée très petits écrans */
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        /* LIGNE 300: Réduction taille texte description */
+        font-size: 1rem;
+    }
+    
+    .resolution-display {
+        /* LIGNE 304: Adaptation affichage résolution mobile */
+        /* font-size: Réduction taille police */
+        /* padding: Réduction espacement */
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
+}
+
+/* LIGNE 311: Adaptation pour tablettes en mode portrait */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    /* CONTEXTE: Tablettes 7-10" en portrait, laptops compacts */
+    
+    h1 {
+        /* LIGNE 315: Taille intermédiaire pour tablettes */
+        font-size: 2.2rem;
+    }
+    
+    .container {
+        /* LIGNE 319: Espacement adapté tablettes */
+        width: 92%;
+        padding: 30px;
+    }
+}
+
+/* ==================== OPTIMISATIONS PERFORMANCE ==================== */
+/* LIGNE 325: Optimisations pour performances et accessibilité */
+
+/* LIGNE 327: Préférences utilisateur pour réduction mouvement */
+@media (prefers-reduced-motion: reduce) {
+    /* ACCESSIBILITY: Respect préférence utilisateur pour animations */
+    /* UTILITÉ: Réduit motion sickness, améliore accessibilité */
+    
+    * {
+        /* LIGNE 332: Suppression animations si demandé */
+        /* transition: none: Supprime toutes transitions */
+        /* animation: none: Supprime toutes animations */
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* LIGNE 339: Support thème sombre système */
+@media (prefers-color-scheme: dark) {
+    /* DETECTION: Thème sombre défini au niveau système */
+    /* UTILITÉ: Respect préférences utilisateur */
+    
+    .container {
+        /* LIGNE 344: Adaptation container pour thème sombre */
+        /* background: Fond sombre avec transparence */
+        /* color: Texte clair pour contraste */
+        background: rgba(0, 0, 0, 0.8);
+        color: #ffffff;
+    }
+    
+    .breakpoints-list li {
+        /* LIGNE 350: Adaptation éléments liste thème sombre */
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+/* LIGNE 356: Styles pour impression */
+
+@media print {
+    /* MEDIA TYPE: print pour impression papier */
+    /* UTILITÉ: Optimisation pour impression document */
+    
+    body {
+        /* LIGNE 361: Couleur impression (économie encre) */
+        /* background-color: white: Fond blanc pour économie */
+        /* color: black: Texte noir pour lisibilité maximale */
+        background-color: white !important;
+        color: black !important;
+    }
+    
+    .test-buttons, .technical-info {
+        /* LIGNE 367: Masquage éléments interactifs à l'impression */
+        /* display: none: Éléments non pertinents pour papier */
+        display: none;
+    }
+}
+
+/* ==================== DOCUMENTATION FINALE ==================== */
+/*
+RÉSUMÉ DES MEDIA QUERIES IMPLÉMENTÉES :
+
+1. COULEURS SELON RÉSOLUTION :
+   - Par défaut : #88c1d0 (Bleu clair)
+   - 1680-1920px : #ffca4b (Jaune vif)
+   - 1280-1679px : #275fa0 (Bleu professionnel)  
+   - <1280px : #ffffff (Blanc pur)
+
+2. BREAKPOINTS RESPONSIVE :
+   - Mobile : <600px
+   - Tablette : 601px-1024px
+   - Desktop petit : 1025px-1279px
+   - Desktop standard : 1280px-1679px
+   - Desktop large : 1680px-1920px
+   - Desktop très large : >1920px
+
+3. OPTIMISATIONS :
+   - Transitions fluides entre états
+   - Adaptation layout selon taille écran
+   - Support préférences accessibilité
+   - Styles impression optimisés
+   - Thème sombre système supporté
+
+4. COMPATIBILITÉ :
+   - Tous navigateurs modernes (IE10+)
+   - Support rétrocompatible graceful degradation
+   - Optimisé performances mobiles
+   - Respecte standards W3C CSS3
+
+UTILISATION :
+Liez ce fichier CSS à votre HTML et les couleurs
+s'adapteront automatiquement selon la largeur d'écran !
+*/

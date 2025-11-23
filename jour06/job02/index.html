@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- LIGNE 4: Métadonnées essentielles du document -->
+    <!-- CHARSET: Encodage UTF-8 pour support caractères internationaux -->
+    <meta charset="UTF-8">
+    
+    <!-- LIGNE 7: Configuration viewport pour responsive design -->
+    <!-- VIEWPORT: Contrôle affichage sur appareils mobiles -->
+    <!-- width=device-width: Largeur = largeur physique de l'écran -->
+    <!-- initial-scale=1.0: Zoom initial à 100% sans zoom automatique -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- LIGNE 12: Titre affiché dans onglet navigateur -->
+    <title>Media Queries CSS - Responsive Background</title>
+    
+    <!-- LIGNE 15: Liaison vers feuille de style externe -->
+    <!-- LINK: Élément pour lier ressources externes -->
+    <!-- rel="stylesheet": Type de relation = feuille de style CSS -->
+    <!-- href: Chemin relatif vers fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ==================== CONTENU PRINCIPAL ==================== -->
+    
+    <!-- LIGNE 23: Conteneur principal pour structurer le contenu -->
+    <div class="container">
+        <!-- LIGNE 25: Titre principal de la page -->
+        <h1> Media Queries CSS</h1>
+        
+        <!-- LIGNE 28: Description du fonctionnement -->
+        <div class="description">
+            Cette page utilise des <strong>media queries CSS</strong> dans un fichier unique 
+            pour adapter la couleur de fond selon la largeur de votre écran.
+            <br><br>
+            Redimensionnez votre navigateur pour voir les changements de couleur !
+        </div>
+        
+        <!-- LIGNE 36: Affichage de la résolution actuelle -->
+        <div class="resolution-display" id="resolutionDisplay">
+            📏 Largeur actuelle : <span id="currentWidth"></span>px
+        </div>
+        
+        <!-- LIGNE 41: Liste des breakpoints et couleurs -->
+        <div class="breakpoints-info">
+            <h3>🔧 Breakpoints configurés :</h3>
+            <ul class="breakpoints-list">
+                <!-- LIGNE 44: Listing des différentes résolutions -->
+                <li class="default">
+                    <strong>Par défaut</strong> : <span class="color-sample default-color"></span> #88c1d0 (Bleu clair)
+                </li>
+                <li class="large">
+                    <strong>1680px - 1920px</strong> : <span class="color-sample large-color"></span> #ffca4b (Jaune)
+                </li>
+                <li class="medium">
+                    <strong>1280px - 1679px</strong> : <span class="color-sample medium-color"></span> #275fa0 (Bleu foncé)
+                </li>
+                <li class="small">
+                    <strong>&lt; 1280px</strong> : <span class="color-sample small-color"></span> #ffffff (Blanc)
+                </li>
+            </ul>
+        </div>
+        
+        <!-- LIGNE 60: Zone de test interactive -->
+        <div class="test-zone">
+            <h3> Zone de test :</h3>
+            <p>
+                Testez le responsive design en redimensionnant votre navigateur ou 
+                en utilisant les outils de développement (F12 → Mode responsive).
+            </p>
+            
+            <!-- LIGNE 67: Boutons de test pour simuler différentes résolutions -->
+            <div class="test-buttons">
+                <button onclick="testResolution(1920)"> Test 1920px</button>
+                <button onclick="testResolution(1440)"> Test 1440px</button>
+                <button onclick="testResolution(1024)"> Test 1024px</button>
+                <button onclick="alert('Redimensionnez manuellement votre navigateur pour tester')">
+                     Test manuel
+                </button>
+            </div>
+        </div>
+        
+        <!-- LIGNE 77: Informations techniques -->
+        <div class="technical-info">
+            <h3> Informations techniques :</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Media Queries utilisées :</strong><br>
+                    CSS @media rules dans style.css
+                </div>
+                <div class="info-item">
+                    <strong>Breakpoints :</strong><br>
+                    Mobile-first approach
+                </div>
+                <div class="info-item">
+                    <strong>Support navigateurs :</strong><br>
+                    IE9+, Chrome, Firefox, Safari, Edge
+                </div>
+                <div class="info-item">
+                    <strong>Performance :</strong><br>
+                    CSS natif, pas de JavaScript requis
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== JAVASCRIPT POUR INTERACTION ==================== 
+        
+        /**
+         * LIGNE 101: Fonction de mise à jour affichage largeur
+         * FUNCTION: updateWidthDisplay - affiche largeur courante en temps réel
+         * UTILITÉ: Feedback visuel pour utilisateur lors redimensionnement
+         */
+        function updateWidthDisplay() {
+            // LIGNE 106: Récupération largeur interne fenêtre
+            // window.innerWidth: Largeur viewport sans scrollbars
+            // VARIABLE: Stockage pour utilisation multiple
+            const width = window.innerWidth;
+            
+            // LIGNE 110: Sélection élément DOM pour affichage
+            // document.getElementById(): Méthode de sélection par ID
+            // ÉLÉMENT: Span contenant la valeur de largeur
+            const widthElement = document.getElementById('currentWidth');
+            
+            // LIGNE 114: Mise à jour contenu texte
+            // textContent: Propriété pour modifier texte d'un élément
+            // SÉCURITÉ: Évite injection XSS contrairement à innerHTML
+            widthElement.textContent = width;
+            
+            // LIGNE 118: Mise en évidence breakpoint actif
+            highlightActiveBreakpoint(width);
+        }
+        
+        /**
+         * LIGNE 122: Fonction de mise en évidence breakpoint actif
+         * FUNCTION: highlightActiveBreakpoint - surligne règle CSS active
+         * PARAMETER: width - largeur courante en pixels
+         * UTILITÉ: Feedback visuel sur règle CSS appliquée
+         */
+        function highlightActiveBreakpoint(width) {
+            // LIGNE 128: Récupération tous éléments de liste
+            // document.querySelectorAll(): Sélection multiple par sélecteur CSS
+            // SÉLECTEUR: .breakpoints-list li = tous les <li> dans la liste
+            const listItems = document.querySelectorAll('.breakpoints-list li');
+            
+            // LIGNE 132: Suppression classe active de tous éléments
+            // forEach(): Méthode d'itération sur NodeList
+            // FONCTION FLÉCHÉE: Syntaxe moderne JavaScript (ES6+)
+            listItems.forEach(item => item.classList.remove('active'));
+            
+            // LIGNE 136: Détermination breakpoint actif selon largeur
+            // STRUCTURE CONDITIONNELLE: if/else if pour classification
+            let activeClass = '';
+            if (width >= 1680 && width <= 1920) {
+                // LIGNE 139: Plage 1680-1920px (écrans très larges)
+                // OPÉRATEUR &&: ET logique (les deux conditions vraies)
+                activeClass = 'large';
+            } else if (width >= 1280 && width < 1680) {
+                // LIGNE 143: Plage 1280-1679px (écrans larges standards)
+                // CONDITION: >= 1280 ET < 1680 (exclusif pour éviter conflit)
+                activeClass = 'medium';
+            } else if (width < 1280) {
+                // LIGNE 147: Largeur < 1280px (petits écrans)
+                // CONDITION: Strictement inférieur à 1280px
+                activeClass = 'small';
+            } else {
+                // LIGNE 151: Cas par défaut (> 1920px)
+                // ELSE: Tous autres cas non couverts
+                activeClass = 'default';
+            }
+            
+            // LIGNE 155: Application classe active sur élément correspondant
+            // document.querySelector(): Sélection premier élément correspondant
+            // TEMPLATE LITERAL: Syntaxe ${} pour interpolation de chaîne
+            const activeElement = document.querySelector(`.breakpoints-list .${activeClass}`);
+            if (activeElement) {
+                // LIGNE 159: Ajout classe CSS 'active'
+                // classList.add(): Méthode pour ajouter classe CSS
+                activeElement.classList.add('active');
+            }
+        }
+        
+        /**
+         * LIGNE 165: Fonction de test simulation résolution
+         * FUNCTION: testResolution - simule résolution via message
+         * PARAMETER: width - largeur à simuler
+         * UTILITÉ: Guide utilisateur pour tests manuels
+         */
+        function testResolution(width) {
+            // LIGNE 170: Message d'instruction pour test
+            // alert(): Boîte de dialogue native navigateur
+            // TEMPLATE LITERAL: Construction message dynamique
+            alert(`Pour tester la résolution ${width}px :\n\n` +
+                  `1. Ouvrez les outils développeur (F12)\n` +
+                  `2. Activez le mode responsive (Ctrl+Shift+M)\n` +
+                  `3. Définissez la largeur à ${width}px\n` +
+                  `4. Observez le changement de couleur !`);
+        }
+        
+        // ==================== ÉVÉNEMENTS ET INITIALISATION ====================
+        
+        // LIGNE 179: Initialisation au chargement page
+        // DOMContentLoaded: Événement déclenché quand DOM est prêt
+        // addEventListener(): Méthode standard pour écouter événements
+        document.addEventListener('DOMContentLoaded', function() {
+            // LIGNE 183: Appel initial pour afficher largeur
+            updateWidthDisplay();
+            
+            // LIGNE 185: Message console pour développeurs
+            console.log(' Media Queries CSS chargées !');
+            console.log(' Largeur actuelle :', window.innerWidth + 'px');
+        });
+        
+        // LIGNE 190: Écoute redimensionnement fenêtre
+        // window.addEventListener(): Écoute événements sur objet window global
+        // 'resize': Événement déclenché lors redimensionnement
+        // updateWidthDisplay: Fonction callback (sans parenthèses!)
+        window.addEventListener('resize', updateWidthDisplay);
+        
+        // LIGNE 195: Mise à jour périodique (sécurité)
+        // setInterval(): Exécution répétée d'une fonction
+        // 1000: Intervalle en millisecondes (1 seconde)
+        // UTILITÉ: Assure mise à jour même si événement resize raté
+        setInterval(updateWidthDisplay, 1000);
+        
+        // ==================== FONCTIONS UTILITAIRES DEBUG ====================
+        
+        /**
+         * LIGNE 202: Fonction globale de debug pour console
+         * FUNCTION: debugMediaQueries - affiche infos debug complètes
+         * UTILITÉ: Accessible depuis DevTools pour debugging avancé
+         */
+        window.debugMediaQueries = function() {
+            // LIGNE 207: Log informations complètes
+            console.group('🔍 Debug Media Queries');
+            console.log('Largeur fenêtre :', window.innerWidth + 'px');
+            console.log('Hauteur fenêtre :', window.innerHeight + 'px');
+            console.log('Ratio pixel :', window.devicePixelRatio);
+            
+            // LIGNE 212: Test des media queries via API JavaScript
+            // window.matchMedia(): API native pour tester media queries
+            // matches: Propriété boolean indiquant correspondance
+            console.log('Media Query Tests :');
+            console.log('  Large (1680-1920px) :', 
+                window.matchMedia('(min-width: 1680px) and (max-width: 1920px)').matches);
+            console.log('  Medium (1280-1679px) :', 
+                window.matchMedia('(min-width: 1280px) and (max-width: 1679px)').matches);
+            console.log('  Small (<1280px) :', 
+                window.matchMedia('(max-width: 1279px)').matches);
+            
+            console.groupEnd();
+        };
+        
+        // LIGNE 224: Message d'accueil développeur
+        console.log(' Page chargée ! Tapez debugMediaQueries() pour plus d\'infos.');
+    </script>
+</body>
+</html>
