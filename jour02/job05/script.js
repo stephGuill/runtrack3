@@ -13,9 +13,13 @@
 // saturation : Saturation de la couleur HSL (70% fixe)
 // lightness : Luminosité de la couleur HSL (50% fixe)
 
+// Message de confirmation du chargement du script
+console.log("✅ Script de scroll progressif chargé avec succès !");
+
 // ==================== FONCTION PRINCIPALE DE GESTION DU SCROLL ==================== 
 // Cette fonction calcule le pourcentage de scroll et met à jour la couleur du footer
 function updateScrollProgress() {
+    console.log("📊 Fonction updateScrollProgress() appelée");
     // ==================== ÉTAPE 1 : CALCUL DU POURCENTAGE DE SCROLL ====================
     
     // VARIABLE scrollTop : Récupère la position verticale actuelle du scroll
@@ -38,11 +42,19 @@ function updateScrollProgress() {
     // Exemple : si la page fait 4096px et la fenêtre 800px, on peut scroller 3296px
     var scrollableHeight = documentHeight - windowHeight;
     
+    console.log("📏 Mesures de scroll:");
+    console.log("  - scrollTop:", scrollTop, "px");
+    console.log("  - documentHeight:", documentHeight, "px");
+    console.log("  - windowHeight:", windowHeight, "px");
+    console.log("  - scrollableHeight:", scrollableHeight, "px");
+    
     // VARIABLE scrollPercent : Calcule le pourcentage de progression
     // FORMULE : (position actuelle / distance scrollable) * 100
     // Math.max(0, ...) : évite les valeurs négatives si scrollTop < 0
     // Math.min(100, ...) : évite les valeurs > 100% si scrollTop > scrollableHeight
     var scrollPercent = Math.min(100, Math.max(0, (scrollTop / scrollableHeight) * 100));
+    
+    console.log("📊 Pourcentage calculé:", scrollPercent.toFixed(2), "%");
     
     // ==================== ÉTAPE 2 : RÉCUPÉRATION DES ÉLÉMENTS DOM ====================
     
@@ -55,13 +67,25 @@ function updateScrollProgress() {
     // Cet élément contiendra le texte "X%" qui s'affiche dans le footer
     var percentElement = document.getElementById('scrollPercent');
     
+    // Vérification que les éléments existent
+    if (!footer) {
+        console.error("❌ ERREUR : Footer avec id='scrollFooter' introuvable !");
+        return;
+    }
+    if (!percentElement) {
+        console.error("❌ ERREUR : Élément avec id='scrollPercent' introuvable !");
+        return;
+    }
+    
     // ==================== ÉTAPE 3 : MISE À JOUR DE L'AFFICHAGE ====================
     
     // MANIPULATION DOM : Met à jour le texte affiché
     // Math.round() : arrondit le pourcentage à l'entier le plus proche
     // textContent : propriété qui modifie le texte à l'intérieur de l'élément
     // Exemple : si scrollPercent = 47.8, affiche "48%"
-    percentElement.textContent = Math.round(scrollPercent) + '%';
+    var roundedPercent = Math.round(scrollPercent);
+    percentElement.textContent = roundedPercent + '%';
+    console.log("📝 Affichage mis à jour:", roundedPercent + "%");
     
     // ==================== ÉTAPE 4 : CALCUL DE LA COULEUR PROGRESSIVE ====================
     
@@ -87,16 +111,22 @@ function updateScrollProgress() {
     // Construit une couleur HSL : hsl(teinte, saturation%, luminosité%)
     // Exemple : hsl(60, 70%, 50%) = jaune à 50% de scroll
     // footer.style.backgroundColor modifie directement le CSS de l'élément
-    footer.style.backgroundColor = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
+    var hslColor = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
+    footer.style.backgroundColor = hslColor;
+    console.log("🎨 Couleur appliquée:", hslColor);
+    console.log("---");
 }
 
 // ==================== FONCTION D'INITIALISATION ====================
 // Cette fonction configure tous les écouteurs d'événements
 function initScrollProgress() {
+    console.log("🔧 Initialisation du système de scroll progressif...");
+    
     // ==================== MISE À JOUR INITIALE ====================
     // APPEL DE FONCTION : Exécute updateScrollProgress() une première fois
     // Important en cas de rechargement de page en milieu de scroll
     // Sans cela, le footer resterait rouge même si on est à 50% de la page
+    console.log("🔄 Mise à jour initiale...");
     updateScrollProgress();
     
     // ==================== ÉCOUTEUR D'ÉVÉNEMENT SCROLL ====================
@@ -105,6 +135,7 @@ function initScrollProgress() {
     // SYNTAXE : addEventListener(typeEvenement, fonctionAAppeler)
     // Chaque fois que l'utilisateur scroll, updateScrollProgress() s'exécute
     window.addEventListener('scroll', updateScrollProgress);
+    console.log("🔗 Événement 'scroll' attaché");
     
     // ==================== ÉCOUTEUR D'ÉVÉNEMENT RESIZE ====================
     // ÉVÉNEMENT 'resize' : Se déclenche quand la fenêtre change de taille
@@ -112,6 +143,10 @@ function initScrollProgress() {
     // Si windowHeight change, scrollableHeight change aussi
     // Le pourcentage doit être recalculé pour rester correct
     window.addEventListener('resize', updateScrollProgress);
+    console.log("🔗 Événement 'resize' attaché");
+    
+    console.log("✅ Initialisation terminée avec succès !");
+    console.log("📜 Scrollez la page pour voir les changements de couleur !");
 }
 
 // ==================== GESTION DU CHARGEMENT DE LA PAGE ====================
@@ -119,21 +154,23 @@ function initScrollProgress() {
 // window.onload s'assure que tous les éléments HTML existent avant le JavaScript
 // Évite les erreurs getElementById() si les éléments ne sont pas encore créés
 window.onload = function() {
+    console.log("📄 Page chargée complètement !");
+    
     // APPEL DE FONCTION : Lance l'initialisation une fois que tout est prêt
     initScrollProgress();
 };
 
 // ==================== ANALYSE TECHNIQUE COMPLÈTE ====================
 //
-// 🔄 BOUCLES UTILISÉES :
+//  BOUCLES UTILISÉES :
 // Aucune boucle explicite (for, while) dans ce code
 // Mais une "boucle implicite" via les événements qui se répètent
 //
-// 🔀 CONDITIONS UTILISÉES :
+//  CONDITIONS UTILISÉES :
 // Math.max(0, ...) = condition implicite : "si < 0 alors 0"
 // Math.min(100, ...) = condition implicite : "si > 100 alors 100"
 //
-// 📊 VARIABLES ET LEURS TYPES :
+//  VARIABLES ET LEURS TYPES :
 // scrollTop (number) : position en pixels
 // documentHeight (number) : hauteur en pixels  
 // windowHeight (number) : hauteur en pixels
@@ -145,7 +182,7 @@ window.onload = function() {
 // footer (HTMLElement) : référence à l'élément DOM
 // percentElement (HTMLElement) : référence à l'élément DOM
 //
-// 🎯 FONCTIONS ET LEUR RÔLE :
+//  FONCTIONS ET LEUR RÔLE :
 // updateScrollProgress() : fonction principale, calcule et applique
 // initScrollProgress() : fonction d'initialisation, configure les événements  
 // Math.min() : fonction mathématique, retourne la plus petite valeur
@@ -154,13 +191,13 @@ window.onload = function() {
 // document.getElementById() : fonction DOM, récupère un élément
 // addEventListener() : fonction DOM, attache un événement
 //
-// 🎨 CALCUL DES COULEURS HSL :
+//  CALCUL DES COULEURS HSL :
 // HSL = Hue (teinte), Saturation, Lightness (luminosité)
 // Plus intuitive que RGB pour les transitions
 // Hue : 0°=rouge, 60°=jaune, 120°=vert, 240°=bleu, 360°=rouge
 // Transition fluide en changeant seulement la teinte
 //
-// ⚡ OPTIMISATIONS IMPORTANTES :
+//  OPTIMISATIONS IMPORTANTES :
 // transition CSS (0.1s) évite les changements brusques
 // Math.min/max évitent les valeurs aberrantes
 // resize listener recalcule si la fenêtre change

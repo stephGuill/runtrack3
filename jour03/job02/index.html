@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job02 - Reconstruction d'Arc-en-ciel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1> Reconstruction d'Arc-en-ciel </h1>
+        
+        <div class="instructions">
+            <h3>Instructions :</h3>
+            <p>1. Cliquez sur "Mélanger" pour mélanger les pièces de l'arc-en-ciel</p>
+            <p>2. Glissez-déposez les pièces dans la zone de reconstruction pour reconstituer l'arc-en-ciel</p>
+            <p>3. L'ordre correct est : Rouge → Orange → Jaune → Vert → Bleu → Violet</p>
+        </div>
+        
+        <div class="controls">
+            <button id="shuffleButton"> Mélanger les pièces</button>
+        </div>
+        
+        <div class="game-area">
+            <div class="container-label"> Zone de reconstruction (glissez les pièces ici dans le bon ordre)</div>
+            <div class="rainbow-container" id="rainbowContainer">
+                <div class="drop-zone" data-position="0">Zone 1</div>
+                <div class="drop-zone" data-position="1">Zone 2</div>
+                <div class="drop-zone" data-position="2">Zone 3</div>
+                <div class="drop-zone" data-position="3">Zone 4</div>
+                <div class="drop-zone" data-position="4">Zone 5</div>
+                <div class="drop-zone" data-position="5">Zone 6</div>
+            </div>
+            
+            <div class="container-label"> Pièces mélangées</div>
+            <div class="pieces-container" id="piecesContainer">
+                <!-- Les pièces seront ajoutées ici par JavaScript -->
+            </div>
+        </div>
+        
+        <div id="message" class="message hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

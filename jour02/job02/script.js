@@ -9,6 +9,12 @@
 // Au début, l'article n'est pas affiché, donc la valeur est false
 var articleVisible = false;
 
+// ==================== MESSAGE DE CONFIRMATION DU CHARGEMENT ====================
+// console.log() affiche un message dans la console du navigateur (F12)
+// Cela confirme que le fichier JavaScript a bien été chargé
+console.log("✅ Script chargé avec succès !");
+console.log("État initial de articleVisible:", articleVisible);
+
 // ==================== DÉCLARATION DE FONCTION ====================
 // Le mot-clé "function" permet de déclarer une fonction en JavaScript
 // "showhide" est le nom (identifiant) que nous donnons à cette fonction
@@ -19,6 +25,10 @@ function showhide() {
     // ==================== DÉBUT DU CORPS DE LA FONCTION ====================
     // Tout le code entre les accolades { } constitue le corps de la fonction
     // Ce code s'exécute uniquement quand la fonction est appelée
+    
+    // Message dans la console pour confirmer que la fonction est appelée
+    console.log("🔄 Fonction showhide() appelée");
+    console.log("État actuel de articleVisible:", articleVisible);
     
     // ==================== MANIPULATION DU DOM - RÉCUPÉRATION D'ÉLÉMENT ====================
     // "var" déclare une nouvelle variable locale à cette fonction
@@ -42,6 +52,8 @@ function showhide() {
         // Ce bloc s'exécute si articleVisible est true (l'article est actuellement affiché)
         // Objectif : supprimer l'article et mettre à jour l'état
         
+        console.log("❌ Article actuellement VISIBLE → On va le CACHER");
+        
         // "container" fait référence à l'élément <div id="container"> trouvé plus haut
         // ".innerHTML" est une propriété qui permet de lire ou modifier le contenu HTML
         // "= ''" assigne une chaîne vide (rien) au contenu du conteneur
@@ -54,10 +66,14 @@ function showhide() {
         // Cette information sera utilisée lors du prochain clic sur le bouton
         articleVisible = false;
         
+        console.log("✅ Article supprimé ! Nouvel état:", articleVisible);
+        
     } else {
         // ==================== BLOC ELSE : CRÉER ET AFFICHER L'ARTICLE ====================
         // Ce bloc s'exécute si articleVisible est false (l'article n'est pas affiché)
         // Objectif : créer l'article et l'ajouter à la page
+        
+        console.log("✅ Article actuellement CACHÉ → On va l'AFFICHER");
         
         // "container.innerHTML" accède au contenu HTML du conteneur
         // "= '<article>...'" assigne du code HTML au conteneur
@@ -71,6 +87,8 @@ function showhide() {
         // Maintenant la variable indique que l'article est affiché
         // Cette information sera utilisée lors du prochain clic sur le bouton
         articleVisible = true;
+        
+        console.log("✅ Article créé et affiché ! Nouvel état:", articleVisible);
     }
     // ==================== FIN DE LA STRUCTURE CONDITIONNELLE ====================
     
@@ -86,11 +104,21 @@ window.onload = function() {
     // Cette fonction s'exécute automatiquement une seule fois au chargement
     // Elle sert à configurer les événements après que tous les éléments HTML existent
     
+    console.log("📄 Page chargée complètement ! Initialisation...");
+    
     // ==================== RÉCUPÉRATION DU BOUTON ====================
     // Même principe que précédemment : récupération d'un élément par son id
     // "button" est l'id de l'élément <button id="button"> dans le HTML
     // "var bouton" stocke une référence vers ce bouton pour pouvoir le manipuler
     var bouton = document.getElementById("button");
+    
+    // Vérification que le bouton existe bien
+    if (bouton) {
+        console.log("✅ Bouton trouvé avec succès !");
+    } else {
+        console.error("❌ ERREUR : Bouton avec id='button' introuvable !");
+        return; // Arrête l'exécution si le bouton n'existe pas
+    }
     
     // ==================== ASSIGNATION D'UN GESTIONNAIRE D'ÉVÉNEMENT ====================
     // "bouton" fait référence à l'élément <button> récupéré juste au-dessus
@@ -100,6 +128,9 @@ window.onload = function() {
     // on ne l'appelle pas immédiatement (showhide() l'appellerait tout de suite)
     // Maintenant, chaque clic sur le bouton exécutera la fonction showhide()
     bouton.onclick = showhide;
+    
+    console.log("🔗 Événement onclick attaché au bouton");
+    console.log("👆 Cliquez sur le bouton pour afficher/cacher l'article !");
     
 }; // ==================== FIN DE LA FONCTION ANONYME window.onload ====================
 

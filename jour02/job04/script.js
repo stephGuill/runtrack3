@@ -1,3 +1,6 @@
+// Message de confirmation du chargement du script
+console.log("✅ Script keylogger chargé avec succès !");
+
 // ==================== DÉCLARATION DE FONCTION PRINCIPALE ====================
 // Le mot-clé "function" déclare une fonction nommée en JavaScript
 // "setupKeylogger" est le nom choisi pour cette fonction d'initialisation
@@ -5,6 +8,8 @@
 // Elle sera appelée une seule fois au chargement de la page pour configurer le système
 // L'organisation en fonction permet de garder le code propre et réutilisable
 function setupKeylogger() {
+    console.log("🔧 Initialisation du keylogger...");
+    
     // ==================== RÉCUPÉRATION DE L'ÉLÉMENT TEXTAREA ====================
     // "var" déclare une variable locale à cette fonction
     // "textarea" est le nom de la variable (choisi pour sa clarté)
@@ -14,6 +19,13 @@ function setupKeylogger() {
     // Cette ligne stocke une référence vers l'élément <textarea id="keylogger">
     // Cette référence sera utilisée plus tard pour vérifier le focus et modifier le contenu
     var textarea = document.getElementById("keylogger");
+    
+    // Vérifier que l'élément existe
+    if (!textarea) {
+        console.error("❌ ERREUR : Textarea avec id='keylogger' introuvable !");
+        return;
+    }
+    console.log("✅ Textarea trouvé avec succès !");
     
     // ==================== AJOUT D'UN ÉCOUTEUR D'ÉVÉNEMENT GLOBAL ====================
     // "document" représente TOUT le document HTML (capture globale)
@@ -34,6 +46,8 @@ function setupKeylogger() {
         // "var char" stocke le caractère pour pouvoir le manipuler ensuite
         var char = event.key;
         
+        console.log("⌨️ Touche pressée:", char);
+        
         // ==================== VALIDATION : FILTRAGE DES LETTRES UNIQUEMENT ====================
         // ".match()" est une méthode des chaînes de caractères pour tester des motifs
         // "/[a-zA-Z]/" est une expression régulière (regex) qui signifie :
@@ -47,6 +61,8 @@ function setupKeylogger() {
         //   - Les touches spéciales (Entrée, Espace, Flèches, etc.)
         // Le "if" n'exécute le bloc suivant QUE si c'est une lettre
         if (char.match(/[a-zA-Z]/)) {
+            console.log("✅ C'est une lettre valide !");
+            
             // ==================== NORMALISATION : CONVERSION EN MINUSCULE ====================
             // ".toLowerCase()" est une méthode qui convertit une chaîne en minuscules
             // Cette normalisation uniformise le traitement : "A" devient "a", "B" devient "b"
@@ -54,6 +70,7 @@ function setupKeylogger() {
             // Peu importe si l'utilisateur tape en majuscule ou minuscule, le résultat sera en minuscule
             // "char = char.toLowerCase()" réassigne la version minuscule à la variable char
             char = char.toLowerCase();
+            console.log("🔄 Conversion en minuscule:", char);
             
             // ==================== DÉTECTION DU FOCUS : ÉLÉMENT ACTUELLEMENT ACTIF ====================
             // "document.activeElement" est une propriété qui retourne l'élément ayant le focus
@@ -64,6 +81,7 @@ function setupKeylogger() {
             // "var isTextareaFocused" stocke le résultat booléen (true/false)
             // Cette variable nous indique si l'utilisateur tape "dans" le textarea ou "ailleurs"
             var isTextareaFocused = (document.activeElement === textarea);
+            console.log("📍 Focus sur le textarea ?", isTextareaFocused);
             
             // ==================== LOGIQUE CONDITIONNELLE : COMPORTEMENT DIFFÉRENTIEL ====================
             // Structure if/else pour implémenter le comportement différent selon le focus
@@ -78,6 +96,7 @@ function setupKeylogger() {
                 // Cette ligne ajoute donc la lettre DEUX FOIS au contenu existant
                 // Résultat : si l'utilisateur tape "hello" dans le textarea, il obtiendra "hheelllloo"
                 textarea.value += char + char;
+                console.log("➕➕ Ajout DOUBLE de la lettre (focus dans textarea):", char + char);
             } else {
                 // ==================== CAS 2 : FOCUS AILLEURS (AJOUT SIMPLE) ====================
                 // Ce bloc s'exécute quand l'utilisateur tape n'importe où SAUF dans le textarea
@@ -87,13 +106,20 @@ function setupKeylogger() {
                 // Exemple : si l'utilisateur tape dans un autre input, les lettres apparaissent quand même
                 // dans le textarea, mais une seule fois chacune
                 textarea.value += char;
+                console.log("➕ Ajout SIMPLE de la lettre (focus ailleurs):", char);
             }
+            console.log("📝 Contenu actuel du textarea:", textarea.value);
+        } else {
+            console.log("❌ Caractère ignoré (pas une lettre)");
         }
         // ==================== FIN DU FILTRAGE DES LETTRES ====================
         // Si le caractère tapé n'est pas une lettre (chiffre, symbole, etc.), 
         // il est simplement ignoré et rien ne se passe
         
     }); // ==================== FIN DE LA FONCTION ANONYME DE L'ÉVÉNEMENT ====================
+    
+    console.log("🔗 Écouteur d'événement 'keypress' attaché au document");
+    console.log("⌨️ Le keylogger est maintenant actif ! Tapez des lettres pour tester.");
     
 } // ==================== FIN DE LA FONCTION setupKeylogger ====================
 
@@ -105,6 +131,8 @@ function setupKeylogger() {
 // POURQUOI C'EST CRUCIAL : si on appelait getElementById("keylogger") avant le chargement,
 // l'élément n'existerait pas encore et on obtiendrait null, causant une erreur
 window.onload = function() {
+    console.log("📄 Page chargée complètement ! Initialisation du keylogger...");
+    
     // ==================== APPEL DE LA FONCTION D'INITIALISATION ====================
     // Une fois que la page est chargée, on peut maintenant configurer le keylogger
     // "setupKeylogger()" appelle la fonction définie plus haut
@@ -112,5 +140,7 @@ window.onload = function() {
     // Cette fonction va configurer l'écouteur d'événement sur le document
     // Après cet appel, le système de capture des touches sera opérationnel
     setupKeylogger();
+    
+    console.log("✅ Initialisation terminée avec succès !");
     
 }; // ==================== FIN DE LA FONCTION ANONYME window.onload ====================

@@ -48,7 +48,7 @@ function detectKeyInput(event) {
     // console.log() : Affiche des informations dans la console du navigateur
     // userSequence.length : Donne la position actuelle dans la séquence
     // konamiSequence[userSequence.length] : Donne la touche attendue à cette position
-    console.log('🔍 Touche pressée:', keyCode, 'Attendu:', konamiSequence[userSequence.length]);
+    console.log(' Touche pressée:', keyCode, 'Attendu:', konamiSequence[userSequence.length]);
     
     // ==================== CONDITION PRINCIPALE DE VALIDATION ====================
     // STRUCTURE if-else : Compare la touche pressée avec la touche attendue
@@ -64,7 +64,7 @@ function detectKeyInput(event) {
         // AFFICHAGE : Montre la progression actuelle/totale
         // userSequence.length : Nombre de touches correctes tapées
         // konamiSequence.length : Nombre total de touches nécessaires (10)
-        console.log('✅ Correct! Progression:', userSequence.length + '/' + konamiSequence.length);
+        console.log(' Correct! Progression:', userSequence.length + '/' + konamiSequence.length);
         
         // APPEL DE FONCTION : Affiche un feedback visuel à l'utilisateur
         // PARAMÈTRES : nombre actuel, nombre total
@@ -75,7 +75,7 @@ function detectKeyInput(event) {
         // userSequence.length === konamiSequence.length : Compare les longueurs
         // Si égales, cela signifie que la séquence est complète (10/10)
         if (userSequence.length === konamiSequence.length) {
-            console.log('🎉 SÉQUENCE COMPLÈTE! ACTIVATION KONAMI!');
+            console.log(' SÉQUENCE COMPLÈTE! ACTIVATION KONAMI!');
             // APPEL DE FONCTION : Lance l'activation du mode Konami
             activateKonamiMode();
         }
@@ -90,12 +90,12 @@ function detectKeyInput(event) {
             // NOUVEAU DÉBUT : L'utilisateur a tapé ↑, on recommence depuis cette touche
             // userSequence = [keyCode] : Remet le tableau avec juste cette première touche
             userSequence = [keyCode];
-            console.log('🔄 Nouveau début détecté');
+            console.log(' Nouveau début détecté');
         } else {
             // RESET COMPLET : La touche ne correspond à rien, on remet tout à zéro
             // userSequence = [] : Vide complètement le tableau
             userSequence = [];
-            console.log('❌ Reset - Recommencez: ↑↑↓↓←→←→BA');
+            console.log(' Reset - Recommencez: ↑↑↓↓←→←→BA');
         }
     }
 }
@@ -185,25 +185,25 @@ function showProgress(current, total) {
 // ==================== FONCTION D'ACTIVATION DU MODE KONAMI ====================
 // FONCTION activateKonamiMode : Fonction principale qui active le thème La Plateforme_
 function activateKonamiMode() {
-    console.log('🚀 DÉBUT ACTIVATION KONAMI MODE...');
+    console.log(' DÉBUT ACTIVATION KONAMI MODE...');
     
     // ==================== PRÉVENTION DES ACTIVATIONS MULTIPLES ====================
     // CONDITION if : Vérifie si le mode est déjà activé
     if (isKonamiActivated) {
-        console.log('🎮 Code Konami déjà activé !');
+        console.log(' Code Konami déjà activé !');
         return; // SORTIE : Empêche l'exécution du reste de la fonction
     }
     
     // CHANGEMENT D'ÉTAT : Marque le mode comme activé
     isKonamiActivated = true;
-    console.log('✅ État isKonamiActivated mis à true');
+    console.log(' État isKonamiActivated mis à true');
 
     // ==================== TRANSFORMATION VISUELLE DE LA PAGE ====================
     // MANIPULATION CSS : Ajoute une classe CSS au body
     // classList.add() : Méthode pour ajouter une classe à un élément
     // Cette classe déclenche tous les styles CSS du thème La Plateforme_
     document.body.classList.add('konami-activated');
-    console.log('✅ Classe konami-activated ajoutée au body');
+    console.log(' Classe konami-activated ajoutée au body');
 
     // ==================== MASQUAGE DU CONTENU INITIAL ====================
     // SÉLECTION DOM : Trouve l'élément avec la classe 'initial-content'
@@ -214,7 +214,7 @@ function activateKonamiMode() {
     if (initialContent) {
         // STYLE CSS : Change la propriété display pour cacher l'élément
         initialContent.style.display = 'none';
-        console.log('✅ Contenu initial masqué');
+        console.log(' Contenu initial masqué');
     }
 
     // ==================== AFFICHAGE DU CONTENU CACHÉ ====================
@@ -225,7 +225,7 @@ function activateKonamiMode() {
     if (hiddenContent) {
         // STYLE CSS : Change display pour afficher l'élément
         hiddenContent.style.display = 'block';
-        console.log('✅ Contenu caché affiché');
+        console.log(' Contenu caché affiché');
     }
 
     // ==================== MASQUAGE DE L'INDICE ====================
@@ -236,7 +236,7 @@ function activateKonamiMode() {
     if (hintElement) {
         // STYLE CSS : Cache l'indice Konami
         hintElement.style.display = 'none';
-        console.log('✅ Indice Konami masqué');
+        console.log(' Indice Konami masqué');
     }
 
     // ==================== FEEDBACK SONORE AVANCÉ ====================
@@ -244,10 +244,10 @@ function activateKonamiMode() {
     try {
         // APPEL DE FONCTION : Joue un son de victoire
         playVictorySound();
-        console.log('✅ Son de victoire joué');
+        console.log(' Son de victoire joué');
     } catch (e) {
         // GESTION D'ERREUR : Si l'audio échoue, continue sans planter
-        console.log('⚠️ Erreur son:', e.message);
+        console.log(' Erreur son:', e.message);
     }
 
     // ==================== EFFETS VISUELS SPECTACULAIRES ====================
@@ -255,18 +255,18 @@ function activateKonamiMode() {
     try {
         // APPEL DE FONCTION : Lance les effets de confetti
         launchCelebrationEffects();
-        console.log('✅ Effets de célébration lancés');
+        console.log(' Effets de célébration lancés');
     } catch (e) {
         // GESTION D'ERREUR : Continue même si les effets échouent
-        console.log('⚠️ Erreur effets:', e.message);
+        console.log(' Erreur effets:', e.message);
     }
 
     // ==================== MESSAGES DE CÉLÉBRATION ====================
     // SÉRIE DE console.log() : Affiche des messages de succès
-    console.log('🎉🎉🎉 CODE KONAMI ACTIVÉ AVEC SUCCÈS ! 🎉🎉🎉');
-    console.log('🔵 Thème La Plateforme_ (bleu #0062ff) activé !');
-    console.log('✨ Activation réussie !');
-    console.log('🏆 Félicitations pour votre persévérance !');
+    console.log(' CODE KONAMI ACTIVÉ AVEC SUCCÈS ! ');
+    console.log(' Thème La Plateforme_ (bleu #0062ff) activé !');
+    console.log(' Activation réussie !');
+    console.log(' Félicitations pour votre persévérance !');
 
     // ==================== STOCKAGE LOCAL OPTIONNEL ====================
     // STRUCTURE try-catch : Gestion d'erreurs pour localStorage
@@ -275,10 +275,10 @@ function activateKonamiMode() {
         // localStorage.setItem() : Stocke une paire clé/valeur
         localStorage.setItem('konami_activated', 'true');
         localStorage.setItem('konami_completion_time', new Date().toISOString());
-        console.log('✅ État sauvegardé localement');
+        console.log(' État sauvegardé localement');
     } catch (e) {
         // GESTION D'ERREUR : localStorage peut être indisponible (navigation privée)
-        console.log('💾 Sauvegarde locale non disponible:', e.message);
+        console.log(' Sauvegarde locale non disponible:', e.message);
     }
 
     // ==================== INITIALISATION DES BOUTONS INTERACTIFS ====================
@@ -289,14 +289,14 @@ function activateKonamiMode() {
         setTimeout(function() {
             // APPEL DE FONCTION : Configure les événements des boutons
             initializeButtons();
-            console.log('✅ Boutons interactifs initialisés');
+            console.log(' Boutons interactifs initialisés');
         }, 500); // DÉLAI : 500 millisecondes = 0.5 seconde
     } catch (e) {
         // GESTION D'ERREUR : Continue même si l'initialisation des boutons échoue
-        console.log('⚠️ Erreur initialisation boutons:', e.message);
+        console.log(' Erreur initialisation boutons:', e.message);
     }
 
-    console.log('🎯 ACTIVATION KONAMI TERMINÉE !');
+    console.log(' ACTIVATION KONAMI TERMINÉE !');
 }
 
 // ==================== FONCTION DE RESET SIMPLE ====================
@@ -304,7 +304,7 @@ function activateKonamiMode() {
 function resetSequence() {
     // RÉINITIALISATION : Vide le tableau des touches utilisateur
     userSequence = [];
-    console.log('🔄 Séquence réinitialisée - Tapez: ↑↑↓↓←→←→BA');
+    console.log(' Séquence réinitialisée - Tapez: ↑↑↓↓←→←→BA');
 }
 
 // ==================== FONCTION DE RÉINITIALISATION COMPLÈTE ====================
@@ -333,7 +333,7 @@ function fullReset() {
         // GESTION D'ERREUR : Ignore les erreurs de localStorage
     }
     
-    console.log('🔄 Reset complet effectué');
+    console.log(' Reset complet effectué');
 }
 
 // ==================== FEEDBACK VISUEL SIMPLE ====================
@@ -404,7 +404,7 @@ function playVictorySound() {
         });
     } catch (error) {
         // GESTION D'ERREUR : L'API Audio peut ne pas être supportée
-        console.log('🔇 Audio non disponible:', error.message);
+        console.log(' Audio non disponible:', error.message);
     }
 }
 
@@ -535,10 +535,10 @@ function initializeKonamiDetection() {
 
     // ==================== MESSAGES D'INITIALISATION ====================
     // SÉRIE DE console.log() : Affiche des informations de démarrage
-    console.log('🎮 KONAMI CODE DETECTOR READY!');
-    console.log('📋 Séquence: ↑↑↓↓←→←→BA (keyCodes: 38,38,40,40,37,39,37,39,66,65)');
-    console.log('🔍 Regardez la console pour voir la progression!');
-    console.log('🛠️ Ctrl+Shift+R pour reset');
+    console.log(' KONAMI CODE DETECTOR READY!');
+    console.log(' Séquence: ↑↑↓↓←→←→BA (keyCodes: 38,38,40,40,37,39,37,39,66,65)');
+    console.log(' Regardez la console pour voir la progression!');
+    console.log(' Ctrl+Shift+R pour reset');
 }
 
 // ==================== FONCTIONS POUR LES BOUTONS INTERACTIFS ====================
@@ -563,7 +563,7 @@ function initializeButtons() {
         
         // CONDITION if : Affiche le nombre de boutons configurés
         if (buttons.length > 0) {
-            console.log('🔘 ' + buttons.length + ' boutons interactifs initialisés');
+            console.log(' ' + buttons.length + ' boutons interactifs initialisés');
         }
     }, 100); // DÉLAI : 100 millisecondes
 }
@@ -590,26 +590,26 @@ function handleButtonClick(button, index) {
         // CAS 'DÉCOUVRIR' : Premier type de bouton
         case 'DÉCOUVRIR':
             // APPEL DE FONCTION : Affiche un message spécifique
-            showButtonMessage('🎓 Découvrez nos formations innovantes !', '#0062ff');
-            console.log('📚 Formation Tech sélectionnée');
+            showButtonMessage(' Découvrez nos formations innovantes !', '#0062ff');
+            console.log(' Formation Tech sélectionnée');
             break; // INSTRUCTION break : Sort du switch
             
         // CAS 'EXPLORER' : Deuxième type de bouton
         case 'EXPLORER':
-            showButtonMessage('🚀 Explorez l\'innovation technologique !', '#0070ff');
-            console.log('🔬 Innovation sélectionnée');
+            showButtonMessage(' Explorez l\'innovation technologique !', '#0070ff');
+            console.log(' Innovation sélectionnée');
             break;
             
         // CAS 'REJOINDRE' : Troisième type de bouton
         case 'REJOINDRE':
-            showButtonMessage('🌟 Rejoignez notre communauté !', '#004bb8');
-            console.log('👥 Communauté sélectionnée');
+            showButtonMessage(' Rejoignez notre communauté !', '#004bb8');
+            console.log(' Communauté sélectionnée');
             break;
             
         // CAS default : Pour tous les autres boutons
         default:
-            showButtonMessage('✨ Merci pour votre intérêt !', '#0062ff');
-            console.log('🔘 Bouton cliqué:', buttonText);
+            showButtonMessage(' Merci pour votre intérêt !', '#0062ff');
+            console.log(' Bouton cliqué:', buttonText);
     }
 }
 
@@ -697,14 +697,14 @@ function showButtonMessage(message, color) {
 window.addEventListener('load', function() {
     // APPEL DE FONCTION : Lance l'initialisation du système Konami
     initializeKonamiDetection();
-    console.log('📄 Page chargée - Détection Konami active !');
-    console.log('🎯 Objectif: Découvrir le contenu secret de La Plateforme_');
+    console.log(' Page chargée - Détection Konami active !');
+    console.log(' Objectif: Découvrir le contenu secret de La Plateforme_');
 });
 
 // ==================== FONCTION DE TEST CSS ====================
 // FONCTION testCSS : Fonction de debug pour tester l'activation CSS
 function testCSS() {
-    console.log('🧪 TEST CSS DÉMARRÉ');
+    console.log(' TEST CSS DÉMARRÉ');
     
     // RÉFÉRENCE : Obtient une référence au body
     var body = document.body;
@@ -712,10 +712,10 @@ function testCSS() {
     
     // CONDITION if-else : Toggle de la classe konami-activated
     if (body.classList.contains('konami-activated')) {
-        console.log('❌ Classe konami-activated déjà présente - suppression');
+        console.log(' Classe konami-activated déjà présente - suppression');
         body.classList.remove('konami-activated');
     } else {
-        console.log('✅ Ajout de la classe konami-activated');
+        console.log(' Ajout de la classe konami-activated');
         body.classList.add('konami-activated');
     }
     
@@ -725,7 +725,7 @@ function testCSS() {
 // ==================== FONCTION D'ACTIVATION FORCÉE (DEBUG) ====================
 // FONCTION forceActivation : Force l'activation pour les tests
 function forceActivation() {
-    console.log('🆘 ACTIVATION FORCÉE DÉCLENCHÉE !');
+    console.log(' ACTIVATION FORCÉE DÉCLENCHÉE !');
     
     // RÉINITIALISATION : Remet l'état à false pour permettre l'activation
     isKonamiActivated = false;
@@ -769,37 +769,37 @@ document.addEventListener('visibilitychange', function() {
         // PAGE CACHÉE : L'utilisateur a changé d'onglet
         // clearTimeout() : Annule le timer de reset s'il existe
         clearTimeout(resetTimer);
-        console.log('⏸️ Détection mise en pause (page cachée)');
+        console.log('⏸ Détection mise en pause (page cachée)');
     } else {
         // PAGE VISIBLE : L'utilisateur est revenu sur l'onglet
         // CONDITIONS : Vérifie s'il faut reprendre le timer
         if (sequencePosition > 0 && !isKonamiActivated) {
             // REDÉMARRAGE DU TIMER : Remet le timer de reset
             resetTimer = setTimeout(resetSequence, 5000);
-            console.log('▶️ Détection reprise (page visible)');
+            console.log('▶ Détection reprise (page visible)');
         }
     }
 });
 
 // ==================== RÉSUMÉ DES CONCEPTS UTILISÉS ====================
 //
-// 🔄 BOUCLES :
+//  BOUCLES :
 // - for (let i = 0; i < 100; i++) : Boucle de création des confetti
 // - forEach() : Boucle sur les tableaux (notes musicales, boutons)
 //
-// 🔀 CONDITIONS :
+//  CONDITIONS :
 // - if/else : Validation des touches, gestion d'erreurs, vérifications
 // - switch/case : Actions différentes selon le bouton cliqué
 // - Opérateur ternaire implicite dans Math.random() * X + Y
 //
-// 📊 VARIABLES ET TYPES :
+//  VARIABLES ET TYPES :
 // - konamiSequence (Array) : Séquence de codes de touches
 // - userSequence (Array) : Progression de l'utilisateur
 // - isKonamiActivated (Boolean) : État d'activation
 // - keyCode (Number) : Code numérique des touches
 // - Éléments DOM (HTMLElement) : Références aux éléments de la page
 //
-// 🎯 FONCTIONS :
+//  FONCTIONS :
 // - detectKeyInput() : Fonction principale de détection
 // - activateKonamiMode() : Activation du thème
 // - showProgress() : Affichage de progression
@@ -807,27 +807,27 @@ document.addEventListener('visibilitychange', function() {
 // - launchCelebrationEffects() : Effets visuels
 // - Fonctions utilitaires : reset, simulation, debug
 //
-// 🎨 MANIPULATION DOM :
+//  MANIPULATION DOM :
 // - createElement() : Création d'éléments
 // - getElementById() / querySelector() : Sélection d'éléments
 // - appendChild() / removeChild() : Ajout/suppression d'éléments
 // - classList.add/remove() : Gestion des classes CSS
 // - style.cssText / style.propriété : Modification des styles
 //
-// ⚡ ÉVÉNEMENTS :
+//  ÉVÉNEMENTS :
 // - keydown : Détection des touches
 // - click : Clics sur les boutons
 // - load : Chargement de la page
 // - visibilitychange : Changement de visibilité d'onglet
 // - addEventListener() : Attachement d'écouteurs
 //
-// 🎵 API WEB AVANCÉES :
+//  API WEB AVANCÉES :
 // - Web Audio API : Génération de sons
 // - localStorage : Stockage local
 // - setTimeout() : Délais et animations
 // - Math.random() : Génération aléatoire
 //
-// 🎯 ARCHITECTURE DU CODE :
+//  ARCHITECTURE DU CODE :
 // - Séparation des responsabilités (détection, affichage, son, effets)
 // - Gestion d'erreurs avec try/catch
 // - Fonctions pures et modulaires
@@ -843,19 +843,19 @@ function detectKeyInput(event) {
 
     var keyCode = event.keyCode || event.which;
     
-    console.log('🔍 Touche pressée:', keyCode, 'Attendu:', konamiSequence[userSequence.length]);
+    console.log(' Touche pressée:', keyCode, 'Attendu:', konamiSequence[userSequence.length]);
     
     // Vérifier si c'est la bonne touche
     if (keyCode === konamiSequence[userSequence.length]) {
         userSequence.push(keyCode);
-        console.log('✅ Correct! Progression:', userSequence.length + '/' + konamiSequence.length);
+        console.log(' Correct! Progression:', userSequence.length + '/' + konamiSequence.length);
         
         // Afficher un feedback visuel
         showProgress(userSequence.length, konamiSequence.length);
         
         // Vérifier si la séquence est complète
         if (userSequence.length === konamiSequence.length) {
-            console.log('🎉 SÉQUENCE COMPLÈTE! ACTIVATION KONAMI!');
+            console.log(' SÉQUENCE COMPLÈTE! ACTIVATION KONAMI!');
             activateKonamiMode();
         }
     } else {
@@ -863,11 +863,11 @@ function detectKeyInput(event) {
         if (keyCode === konamiSequence[0]) {
             // Si c'est le début, recommencer
             userSequence = [keyCode];
-            console.log('� Nouveau début détecté');
+            console.log(' Nouveau début détecté');
         } else {
             // Sinon reset complet
             userSequence = [];
-            console.log('❌ Reset - Recommencez: ↑↑↓↓←→←→BA');
+            console.log(' Reset - Recommencez: ↑↑↓↓←→←→BA');
         }
     }
 }
@@ -924,7 +924,7 @@ function showProgress(current, total) {
 
 // ==================== FONCTION D'ACTIVATION DU MODE KONAMI ====================
 function activateKonamiMode() {
-    console.log('🚀 DÉBUT ACTIVATION KONAMI MODE...');
+    console.log(' DÉBUT ACTIVATION KONAMI MODE...');
     
     // ==================== PRÉVENTION DES ACTIVATIONS MULTIPLES ====================
     if (isKonamiActivated) {
@@ -933,82 +933,82 @@ function activateKonamiMode() {
     }
     
     isKonamiActivated = true;
-    console.log('✅ État isKonamiActivated mis à true');
+    console.log(' État isKonamiActivated mis à true');
 
     // ==================== TRANSFORMATION VISUELLE DE LA PAGE ====================
     // Ajouter la classe CSS qui déclenche tous les styles La Plateforme_
     document.body.classList.add('konami-activated');
-    console.log('✅ Classe konami-activated ajoutée au body');
+    console.log(' Classe konami-activated ajoutée au body');
 
     // ==================== MASQUAGE DU CONTENU INITIAL ====================
     var initialContent = document.querySelector('.initial-content');
     if (initialContent) {
         initialContent.style.display = 'none';
-        console.log('✅ Contenu initial masqué');
+        console.log(' Contenu initial masqué');
     }
 
     // ==================== AFFICHAGE DU CONTENU CACHÉ ====================
     var hiddenContent = document.querySelector('.hidden-content');
     if (hiddenContent) {
         hiddenContent.style.display = 'block';
-        console.log('✅ Contenu caché affiché');
+        console.log(' Contenu caché affiché');
     }
 
     // ==================== MASQUAGE DE L'INDICE ====================
     var hintElement = document.querySelector('.konami-hint');
     if (hintElement) {
         hintElement.style.display = 'none';
-        console.log('✅ Indice Konami masqué');
+        console.log(' Indice Konami masqué');
     }
 
     // ==================== FEEDBACK SONORE AVANCÉ ====================
     try {
         playVictorySound();
-        console.log('✅ Son de victoire joué');
+        console.log(' Son de victoire joué');
     } catch (e) {
-        console.log('⚠️ Erreur son:', e.message);
+        console.log(' Erreur son:', e.message);
     }
 
     // ==================== EFFETS VISUELS SPECTACULAIRES ====================
     try {
         launchCelebrationEffects();
-        console.log('✅ Effets de célébration lancés');
+        console.log(' Effets de célébration lancés');
     } catch (e) {
-        console.log('⚠️ Erreur effets:', e.message);
+        console.log(' Erreur effets:', e.message);
     }
 
     // ==================== MESSAGES DE CÉLÉBRATION ====================
-    console.log('🎉🎉🎉 CODE KONAMI ACTIVÉ AVEC SUCCÈS ! 🎉🎉🎉');
-    console.log('🔵 Thème La Plateforme_ (bleu #0062ff) activé !');
-    console.log('✨ Activation réussie !');
-    console.log('🏆 Félicitations pour votre persévérance !');
+    console.log(' CODE KONAMI ACTIVÉ AVEC SUCCÈS ! ');
+    console.log(' Thème La Plateforme_ (bleu #0062ff) activé !');
+    console.log(' Activation réussie !');
+    console.log(' Félicitations pour votre persévérance !');
 
     // ==================== STOCKAGE LOCAL OPTIONNEL ====================
     try {
         localStorage.setItem('konami_activated', 'true');
         localStorage.setItem('konami_completion_time', new Date().toISOString());
-        console.log('✅ État sauvegardé localement');
+        console.log(' État sauvegardé localement');
     } catch (e) {
-        console.log('💾 Sauvegarde locale non disponible:', e.message);
+        console.log(' Sauvegarde locale non disponible:', e.message);
     }
 
     // ==================== INITIALISATION DES BOUTONS INTERACTIFS ====================
     try {
         setTimeout(function() {
             initializeButtons();
-            console.log('✅ Boutons interactifs initialisés');
+            console.log(' Boutons interactifs initialisés');
         }, 500);
     } catch (e) {
-        console.log('⚠️ Erreur initialisation boutons:', e.message);
+        console.log(' Erreur initialisation boutons:', e.message);
     }
 
-    console.log('🎯 ACTIVATION KONAMI TERMINÉE !');
+    console.log(' ACTIVATION KONAMI TERMINÉE !');
 }
 
 // ==================== FONCTION DE RESET SIMPLE ====================
 function resetSequence() {
     userSequence = [];
-    console.log('🔄 Séquence réinitialisée - Tapez: ↑↑↓↓←→←→BA');
+    console.log(' Séquence réinitialisée - Tapez: ↑↑↓↓←→←→BA');
 }
 
 // ==================== FONCTION DE RÉINITIALISATION COMPLÈTE ====================
@@ -1031,7 +1031,7 @@ function fullReset() {
         // Ignorer les erreurs
     }
     
-    console.log('� Reset complet effectué');
+    console.log(' Reset complet effectué');
 }
 
 // ==================== FEEDBACK VISUEL SIMPLE ====================
@@ -1070,7 +1070,7 @@ function playVictorySound() {
         });
     } catch (error) {
         // En cas d'erreur avec l'API Audio, continuer sans son
-        console.log('🔇 Audio non disponible:', error.message);
+        console.log(' Audio non disponible:', error.message);
     }
 }
 
@@ -1163,7 +1163,7 @@ function fullReset() {
         // Ignorer les erreurs
     }
     
-    console.log('🔄 Reset complet effectué');
+    console.log(' Reset complet effectué');
 }
 
 // ==================== INITIALISATION SIMPLE ====================
@@ -1180,10 +1180,10 @@ function initializeKonamiDetection() {
     });
 
     // Messages d'initialisation
-    console.log('🎮 KONAMI CODE DETECTOR READY!');
-    console.log('� Séquence: ↑↑↓↓←→←→BA (keyCodes: 38,38,40,40,37,39,37,39,66,65)');
-    console.log('� Regardez la console pour voir la progression!');
-    console.log('🛠️ Ctrl+Shift+R pour reset');
+    console.log(' KONAMI CODE DETECTOR READY!');
+    console.log(' Séquence: ↑↑↓↓←→←→BA (keyCodes: 38,38,40,40,37,39,37,39,66,65)');
+    console.log(' Regardez la console pour voir la progression!');
+    console.log(' Ctrl+Shift+R pour reset');
 }
 
 // ==================== FONCTIONS POUR LES BOUTONS INTERACTIFS ====================
@@ -1199,7 +1199,7 @@ function initializeButtons() {
         });
         
         if (buttons.length > 0) {
-            console.log('🔘 ' + buttons.length + ' boutons interactifs initialisés');
+            console.log(' ' + buttons.length + ' boutons interactifs initialisés');
         }
     }, 100);
 }
@@ -1217,22 +1217,22 @@ function handleButtonClick(button, index) {
     switch(buttonText.toUpperCase()) {
         case 'DÉCOUVRIR':
             showButtonMessage('🎓 Découvrez nos formations innovantes !', '#0062ff');
-            console.log('📚 Formation Tech sélectionnée');
+            console.log(' Formation Tech sélectionnée');
             break;
             
         case 'EXPLORER':
-            showButtonMessage('🚀 Explorez l\'innovation technologique !', '#0070ff');
-            console.log('🔬 Innovation sélectionnée');
+            showButtonMessage(' Explorez l\'innovation technologique !', '#0070ff');
+            console.log(' Innovation sélectionnée');
             break;
             
         case 'REJOINDRE':
-            showButtonMessage('🌟 Rejoignez notre communauté !', '#004bb8');
-            console.log('👥 Communauté sélectionnée');
+            showButtonMessage(' Rejoignez notre communauté !', '#004bb8');
+            console.log(' Communauté sélectionnée');
             break;
             
         default:
-            showButtonMessage('✨ Merci pour votre intérêt !', '#0062ff');
-            console.log('🔘 Bouton cliqué:', buttonText);
+            showButtonMessage(' Merci pour votre intérêt !', '#0062ff');
+            console.log(' Bouton cliqué:', buttonText);
     }
 }
 
@@ -1301,22 +1301,22 @@ function showButtonMessage(message, color) {
 // Attendre le chargement complet avant d'initialiser
 window.addEventListener('load', function() {
     initializeKonamiDetection();
-    console.log('📄 Page chargée - Détection Konami active !');
-    console.log('🎯 Objectif: Découvrir le contenu secret de La Plateforme_');
+    console.log(' Page chargée - Détection Konami active !');
+    console.log(' Objectif: Découvrir le contenu secret de La Plateforme_');
 });
 
 // ==================== FONCTION DE TEST CSS ====================
 function testCSS() {
-    console.log('🧪 TEST CSS DÉMARRÉ');
+    console.log(' TEST CSS DÉMARRÉ');
     
     var body = document.body;
     console.log('Classes actuelles du body:', body.className);
     
     if (body.classList.contains('konami-activated')) {
-        console.log('❌ Classe konami-activated déjà présente - suppression');
+        console.log(' Classe konami-activated déjà présente - suppression');
         body.classList.remove('konami-activated');
     } else {
-        console.log('✅ Ajout de la classe konami-activated');
+        console.log(' Ajout de la classe konami-activated');
         body.classList.add('konami-activated');
     }
     
@@ -1325,7 +1325,7 @@ function testCSS() {
 
 // ==================== FONCTION D'ACTIVATION FORCÉE (DEBUG) ====================
 function forceActivation() {
-    console.log('🆘 ACTIVATION FORCÉE DÉCLENCHÉE !');
+    console.log(' ACTIVATION FORCÉE DÉCLENCHÉE !');
     
     // Reset de l'état
     isKonamiActivated = false;
@@ -1336,7 +1336,7 @@ function forceActivation() {
 
 // ==================== FONCTION DE SIMULATION DE TOUCHE ====================
 function simulateKey(keyCode) {
-    console.log('🔧 Simulation de la touche:', keyCode);
+    console.log(' Simulation de la touche:', keyCode);
     
     // Créer un faux événement
     var fakeEvent = {
@@ -1362,12 +1362,12 @@ document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
         // Page cachée, mettre en pause
         clearTimeout(resetTimer);
-        console.log('⏸️ Détection mise en pause (page cachée)');
+        console.log(' Détection mise en pause (page cachée)');
     } else {
         // Page visible, reprendre
         if (sequencePosition > 0 && !isKonamiActivated) {
             resetTimer = setTimeout(resetSequence, 5000);
-            console.log('▶️ Détection reprise (page visible)');
+            console.log(' Détection reprise (page visible)');
         }
     }
 });

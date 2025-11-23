@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job03 - Jeu du Taquin - La Plateforme_</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="game-container">
+        <h1> Jeu du Taquin</h1>
+        <p class="subtitle">Reconstituez le logo de La Plateforme_</p>
+        
+        <div class="instructions">
+            <h3>Comment jouer au Taquin :</h3>
+            <ul>
+                <li>8 carreaux du logo glissent dans une grille de 9 cases</li>
+                <li>Cliquez sur un carreau adjacent à la case vide pour le déplacer</li>
+                <li>Reconstituez le logo complet de La Plateforme_ dans l'ordre</li>
+                <li>Quand c'est réussi, "Vous avez gagné" s'affiche en vert</li>
+                <li>Le bouton "Recommencer" permet de relancer une partie</li>
+            </ul>
+        </div>
+        
+        <div class="game-info">
+            <div class="moves-counter">
+                Mouvements: <span id="movesCount">0</span>
+            </div>
+            <div class="timer">
+                Temps: <span id="timeCount">00:00</span>
+            </div>
+        </div>
+        
+        <div class="difficulty-selector">
+            <label for="difficulty">Difficulté:</label>
+            <select id="difficulty">
+                <option value="easy">Facile (10 mélanges)</option>
+                <option value="medium" selected>Moyen (25 mélanges)</option>
+                <option value="hard">Difficile (50 mélanges)</option>
+                <option value="expert">Expert (100 mélanges)</option>
+            </select>
+        </div>
+        
+        <div class="preview-container">
+            <div class="preview-image"></div>
+            <div class="preview-label">Logo de La Plateforme_ à reconstituer</div>
+        </div>
+        
+        <div class="puzzle-container">
+            <div class="puzzle-grid" id="puzzleGrid">
+                <!-- Les pièces seront générées par JavaScript -->
+            </div>
+        </div>
+        
+        <div id="message" class="message hidden"></div>
+        
+        <div class="controls">
+            <button id="newGameBtn" class="btn btn-success"> Nouvelle Partie</button>
+            <button id="shuffleBtn" class="btn btn-warning"> Mélanger</button>
+            <button id="solveBtn" class="btn"> Résoudre</button>
+        </div>
+        
+        <div class="game-info">
+            <div>Meilleur score: <span id="bestScore">--</span> mouvements</div>
+            <div>Parties jouées: <span id="gamesPlayed">0</span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

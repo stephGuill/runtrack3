@@ -1,0 +1,382 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: clamp(10px, 3vw, 20px);
+        }
+        
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            padding: clamp(15px, 4vw, 30px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .moves-counter {
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .timer {
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .puzzle-container {
+            display: inline-block;
+            background: #ddd;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 20px 0;
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            width: min(300px, 90vw);
+            height: min(300px, 90vw);
+            background: #bbb;
+            border-radius: 10px;
+            padding: 4px;
+        }
+        
+        .puzzle-piece {
+            background-size: min(300px, 90vw) min(300px, 90vw);
+            background-repeat: no-repeat;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            border-color: #007bff;
+            box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+            z-index: 10;
+        }
+        
+        .puzzle-piece:active {
+            transform: scale(0.95);
+        }
+        
+        .puzzle-piece.clickable {
+            border-color: #28a745;
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+        }
+        
+        .puzzle-piece.moving {
+            transform: scale(1.1);
+            z-index: 100;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .empty-space {
+            background: #f0f0f0;
+            border: 2px dashed #999;
+            cursor: default;
+            position: relative;
+        }
+        
+        .empty-space:hover {
+            transform: none;
+            border-color: #999;
+            box-shadow: none;
+        }
+        
+        .empty-space::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            opacity: 0.3;
+        }
+        
+        .controls {
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-success {
+            background: linear-gradient(45deg, #28a745, #1e7e34);
+            box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        }
+        
+        .btn-success:hover {
+            box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(45deg, #ffc107, #e0a800);
+            box-shadow: 0 4px 15px rgba(255,193,7,0.3);
+        }
+        
+        .btn-warning:hover {
+            box-shadow: 0 6px 20px rgba(255,193,7,0.4);
+        }
+        
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.5s ease;
+            transform: translateY(-10px);
+        }
+        
+        .message.win {
+            background: linear-gradient(45deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border: 2px solid #28a745;
+            animation: celebration 0.8s ease-in-out;
+        }
+        
+        .message.hidden {
+            opacity: 0;
+            transform: translateY(-30px);
+            height: 0;
+            padding: 0;
+            margin: 0;
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(0.8) translateY(-10px); opacity: 0; }
+            50% { transform: scale(1.1) translateY(-5px); opacity: 1; }
+            100% { transform: scale(1) translateY(-10px); opacity: 1; }
+        }
+        
+        .difficulty-selector {
+            margin: 15px 0;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 10px;
+        }
+        
+        .difficulty-selector label {
+            font-weight: bold;
+            color: #495057;
+            margin-right: 10px;
+        }
+        
+        .difficulty-selector select {
+            padding: 8px 15px;
+            border: 2px solid #ced4da;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        
+        .instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 5px 0;
+            color: #495057;
+        }
+        
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.7em;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .game-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+            
+            .message {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .puzzle-grid {
+                width: min(280px, 85vw);
+                height: min(280px, 85vw);
+            }
+            
+            .puzzle-piece {
+                background-size: min(280px, 85vw) min(280px, 85vw);
+            }
+            
+            .game-container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.4em;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 0.9em;
+                margin-bottom: 15px;
+            }
+            
+            .game-info {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+                margin: 3px;
+            }
+            
+            .message {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .instructions {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .preview-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .puzzle-grid {
+                width: min(240px, 90vw);
+                height: min(240px, 90vw);
+                gap: 3px;
+            }
+            
+            .puzzle-piece {
+                background-size: min(240px, 90vw) min(240px, 90vw);
+            }
+            
+            h1 {
+                font-size: 1.2em;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+        
+        .preview-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .preview-image {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: url('img/image à reconstituer.jpg') center/cover;
+            margin: 0 auto;
+            opacity: 0.7;
+        }
+        
+        .preview-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }

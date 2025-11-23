@@ -1,0 +1,277 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: clamp(10px, 3vw, 20px);
+            background: linear-gradient(135deg, #87CEEB, #E0F6FF);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: clamp(15px, 4vw, 30px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        #shuffleButton {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        #shuffleButton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        #shuffleButton:active {
+            transform: translateY(0);
+        }
+        
+        .game-area {
+            margin: 30px 0;
+        }
+        
+        .rainbow-container {
+            background: #f0f8ff;
+            border: 3px dashed #007bff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .pieces-container {
+            background: #fff9e6;
+            border: 3px dashed #ffc107;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .container-label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .rainbow-piece {
+            width: clamp(60px, 15vw, 100px);
+            height: clamp(50px, 12vw, 80px);
+            cursor: grab;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .rainbow-piece:hover {
+            transform: scale(1.05);
+            border-color: #007bff;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        
+        .rainbow-piece:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+        
+        .rainbow-piece.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+        
+        .drop-zone {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            width: 100px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .drop-zone.drag-over {
+            border-color: #007bff;
+            background-color: #e7f3ff;
+            transform: scale(1.05);
+        }
+        
+        .message {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+        
+        .message.win {
+            color: #28a745;
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+        
+        .message.lose {
+            color: #dc3545;
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+        }
+        
+        .message.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(3deg); }
+            50% { transform: scale(1) rotate(0deg); }
+            75% { transform: scale(1.1) rotate(-3deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        
+        .celebration {
+            animation: celebration 0.6s ease-in-out;
+        }
+        
+        /* ==================== RESPONSIVE DESIGN ÉTENDU ==================== */
+        /* Tablettes larges */
+        @media (max-width: 992px) {
+            h1 { font-size: 1.9em; }
+            .game-area { margin: 25px 0; }
+        }
+
+        /* Tablettes portrait */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.7em; }
+            
+            #shuffleButton {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .rainbow-container, .pieces-container {
+                padding: 15px;
+                min-height: 100px;
+                gap: 8px;
+            }
+            
+            .container-label {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Smartphones */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5em; margin-bottom: 8px; }
+            
+            .instructions {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            #shuffleButton {
+                padding: 10px 20px;
+                font-size: 14px;
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .rainbow-container, .pieces-container {
+                padding: 10px;
+                min-height: 80px;
+                gap: 5px;
+            }
+            
+            .rainbow-piece {
+                width: 50px;
+                height: 40px;
+            }
+            
+            .drop-zone {
+                width: 50px;
+                height: 40px;
+                font-size: 10px;
+            }
+            
+            .container-label {
+                font-size: 0.9em;
+                margin-bottom: 8px;
+            }
+            
+            .message {
+                font-size: 18px;
+                padding: 12px;
+            }
+        }
+
+        /* Très petits écrans */
+        @media (max-width: 360px) {
+            h1 { font-size: 1.3em; }
+            
+            .rainbow-piece {
+                width: 45px;
+                height: 36px;
+            }
+            
+            .drop-zone {
+                width: 45px;
+                height: 36px;
+            }
+            
+            #shuffleButton {
+                font-size: 13px;
+                padding: 9px 18px;
+            }
+        }
+
+        /* Grands écrans */
+        @media (min-width: 1200px) {
+            .container { max-width: 1200px; }
+            h1 { font-size: 2.2em; }
+        }

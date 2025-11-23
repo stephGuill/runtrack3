@@ -1,0 +1,255 @@
+ /* ==================== STYLES PAR DÉFAUT : PAGE VIDE ==================== */
+        /* Par défaut, la page apparaît complètement vide */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Cache les barres de défilement */
+        }
+
+        /* Le contenu est caché par défaut */
+        .hidden-content {
+            display: none;
+        }
+
+        /* ==================== STYLES LA PLATEFORME_ (ACTIVÉS PAR KONAMI) ==================== */
+        /* Ces styles s'appliquent quand le code Konami est activé */
+        .konami-activated {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+            animation: konami-entrance 2s ease-in-out;
+        }
+
+        .konami-activated .hidden-content {
+            display: block;
+        }
+
+        /* Animation d'entrée spectaculaire */
+        @keyframes konami-entrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.1) rotate(180deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1) rotate(0deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* Conteneur principal avec les couleurs La Plateforme_ */
+        .plateforme-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Titre principal avec effet néon */
+        .plateforme-title {
+            text-align: center;
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 0 0 20px #fff, 0 0 40px #667eea, 0 0 60px #764ba2;
+            margin-bottom: 30px;
+            animation: neon-pulse 2s infinite alternate;
+        }
+
+        @keyframes neon-pulse {
+            0% {
+                text-shadow: 0 0 20px #fff, 0 0 40px #667eea, 0 0 60px #764ba2;
+            }
+            100% {
+                text-shadow: 0 0 30px #fff, 0 0 60px #667eea, 0 0 90px #764ba2;
+            }
+        }
+
+        /* Sections avec design moderne */
+        .plateforme-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .plateforme-section:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Texte avec style moderne */
+        .plateforme-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: justify;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Boutons avec style La Plateforme_ */
+        .plateforme-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .plateforme-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Grille de cartes */
+        .plateforme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .plateforme-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .plateforme-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        /* Footer avec style */
+        .plateforme-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        /* Indicateur de code Konami */
+        .konami-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .konami-hint:hover {
+            opacity: 1;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .plateforme-title {
+                font-size: 3.5em;
+            }
+            
+            .plateforme-container {
+                padding: 35px 20px;
+            }
+            
+            .plateforme-section {
+                padding: 25px;
+                margin: 25px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .plateforme-title {
+                font-size: 2.8em;
+                padding: 0 10px;
+            }
+            
+            .plateforme-container {
+                padding: 25px 15px;
+            }
+            
+            .plateforme-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .plateforme-text {
+                font-size: 1.1em;
+                text-align: left;
+            }
+            
+            .plateforme-button {
+                padding: 12px 25px;
+                font-size: 1em;
+                margin: 8px;
+                width: auto;
+                max-width: 90%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                overflow-y: auto;
+            }
+            
+            .plateforme-title {
+                font-size: 2em;
+                padding: 0 10px;
+            }
+            
+            .plateforme-container {
+                padding: 20px 10px;
+            }
+            
+            .plateforme-section {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .plateforme-text {
+                font-size: 1em;
+            }
+            
+            .plateforme-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+                margin: 5px;
+                display: block;
+                width: 90%;
+                max-width: 280px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .plateforme-title {
+                font-size: 1.7em;
+            }
+            
+            .plateforme-section {
+                padding: 12px;
+            }
+            
+            .plateforme-text {
+                font-size: 0.95em;
+            }
+        }

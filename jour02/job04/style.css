@@ -1,0 +1,66 @@
+ body {
+            font-family: Arial, sans-serif;
+            max-width: 90%;
+            margin: 30px auto;
+            padding: 15px;
+            background-color: #f5f5f5;
+        }
+        
+        @media (min-width: 768px) {
+            body {
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+            }
+        }
+        .container {
+            background-color: white;
+            padding: clamp(15px, 4vw, 30px);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .description {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        #keylogger {
+            width: 100%;
+            min-height: 150px;
+            height: clamp(150px, 30vh, 200px);
+            padding: clamp(10px, 2vw, 15px);
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: clamp(14px, 2vw, 16px);
+            font-family: monospace;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        #keylogger:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .test-input {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }

@@ -214,33 +214,71 @@ code {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
-/* Adaptation pour les écrans de taille moyenne (tablettes) */
+
+/* Écrans larges */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Tablettes et écrans moyens */
+@media (max-width: 992px) {
+    body {
+        padding-bottom: 70px;
+    }
+    
+    .container {
+        padding: 18px;
+        margin: 15px auto;
+    }
+    
+    h1 {
+        font-size: 2.2em;
+    }
+    
+    h2 {
+        font-size: 1.6em;
+    }
+}
+
+/* Tablettes portrait */
 @media (max-width: 768px) {
+    body {
+        padding-bottom: 60px;
+    }
+    
     .container {
         /* Réduction de l'espacement sur les écrans plus petits */
         padding: 15px;
-        
-        /* Suppression de l'ombre sur petits écrans pour simplifier */
-        box-shadow: none;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     
     h1 {
         /* Réduction de la taille du titre principal */
-        font-size: 2em;
+        font-size: 1.8em;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+        margin-top: 30px;
     }
     
     .section {
         /* Réduction de l'espacement des sections */
-        margin: 30px 0;
+        margin: 25px 0;
         padding: 20px;
+    }
+    
+    .description {
+        font-size: 1em;
+        padding: 15px;
     }
     
     #scrollFooter {
         /* Réduction de la hauteur du footer sur petits écrans */
         height: 50px;
-        
-        /* Réduction de la taille de police */
-        font-size: 16px;
+        font-size: 15px;
     }
     
     #scrollPercent {
@@ -249,11 +287,42 @@ code {
     }
 }
 
-/* Adaptation pour les très petits écrans (smartphones) */
+/* Smartphones */
 @media (max-width: 480px) {
+    body {
+        padding-bottom: 55px;
+    }
+    
     .container {
         /* Espacement minimal sur très petits écrans */
         padding: 10px;
+        margin: 5px auto;
+        box-shadow: none;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+        margin-top: 25px;
+    }
+    
+    h3 {
+        font-size: 1em;
+        margin-top: 20px;
+    }
+    
+    .description {
+        font-size: 0.95em;
+        padding: 12px;
+    }
+    
+    .section {
+        margin: 20px 0;
+        padding: 15px;
     }
     
     .footer-content {
@@ -264,8 +333,9 @@ code {
     
     #scrollFooter {
         /* Hauteur réduite pour économiser l'espace */
-        height: 45px;
-        font-size: 14px;
+        height: 50px;
+        font-size: 13px;
+        padding: 5px;
     }
     
     #scrollPercent {
@@ -273,7 +343,27 @@ code {
     }
     
     .footer-text {
+        font-size: 11px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.3em;
+    }
+    
+    .container {
+        padding: 8px;
+    }
+    
+    #scrollFooter {
+        height: 45px;
         font-size: 12px;
+    }
+    
+    #scrollPercent {
+        font-size: 16px;
     }
 }
 

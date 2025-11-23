@@ -36,7 +36,7 @@
     
     /* === EFFETS VISUELS === */
     box-shadow: 0 20px 40px rgba(0, 98, 255, 0.4);  /* Ombre bleue */
-    overflow: hidden;                  /* Cache les effets de débordement */
+    overflow: hidden;                  /* Cache les effets de débordement uniquement pour l'effet de brillance */
     
     /* === ANIMATIONS === */
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -89,26 +89,52 @@
 /* ==================== RESPONSIVE DESIGN ==================== */
 
 /* Tablettes et écrans moyens */
+@media (max-width: 992px) {
+    .plateforme-button {
+        padding: 22px 55px;
+        font-size: 1.5em;
+        min-width: 190px;
+        min-height: 68px;
+        margin: 18px 8px;
+    }
+}
+
 @media (max-width: 768px) {
     .plateforme-button {
-        padding: 20px 50px;
-        font-size: 1.4em;
-        min-width: 180px;
+        padding: 20px 45px;
+        font-size: 1.3em;
+        min-width: 170px;
         min-height: 65px;
         margin: 15px 5px;
+        width: auto;
+        max-width: 90%;
     }
 }
 
 /* Smartphones */
 @media (max-width: 480px) {
     .plateforme-button {
-        padding: 18px 40px;
-        font-size: 1.2em;
-        min-width: 160px;
-        min-height: 60px;
-        margin: 10px 0;
-        width: 90%;                    /* Prend la largeur disponible */
-        max-width: 300px;              /* Mais pas trop large */
+        padding: 16px 35px;
+        font-size: 1.1em;
+        min-width: 150px;
+        min-height: 55px;
+        margin: 12px auto;
+        width: 90%;
+        max-width: 320px;
+        display: block;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+    .plateforme-button {
+        padding: 14px 30px;
+        font-size: 1em;
+        min-width: 140px;
+        min-height: 50px;
+        margin: 10px auto;
+        width: 95%;
+        letter-spacing: 0.1em;
     }
 }
 

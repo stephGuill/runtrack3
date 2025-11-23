@@ -30,134 +30,8 @@
     <title>Job03 - Afficher/Masquer Article</title>
     <!-- LIGNE 25: <title> définit le texte qui apparaît dans l'onglet du navigateur -->
     <!-- UTILITÉ: Ce titre est aussi utilisé par les moteurs de recherche -->
-
-    <!-- ==================== STYLES CSS INTERNES ==================== -->
-    <style>
-    <!-- LIGNE 29: <style> permet d'inclure du CSS directement dans le HTML -->
-    <!-- ALTERNATIVE: Pourrait être dans un fichier .css externe -->
-
-        /* ==================== STYLES DU CORPS DE PAGE ==================== */
-        body {
-        /* LIGNE 33: Sélecteur CSS pour l'élément <body> */
-        /* FONCTION: Définit l'apparence globale de la page */
-            font-family: Arial, sans-serif;
-            /* LIGNE 35: Police de caractères avec fallback (si Arial indisponible) */
-            max-width: 600px;
-            /* LIGNE 36: Largeur maximum de 600 pixels pour la lisibilité */
-            margin: 50px auto;
-            /* LIGNE 37: margin: 50px (haut/bas) auto (gauche/droite centré) */
-            padding: 20px;
-            /* LIGNE 38: Espacement interne de 20px sur tous les côtés */
-            background-color: #f5f5f5;
-            /* LIGNE 39: Couleur de fond gris très clair */
-            text-align: center;
-            /* LIGNE 40: Centrage du texte */
-        }
-
-        
-        /* ==================== STYLES DU CONTENEUR PRINCIPAL ==================== */
-        .container {
-        /* LIGNE 43: Sélecteur de classe CSS pour les éléments avec class="container" */
-        /* FONCTION: Crée une boîte blanche centrée avec ombre */
-            background-color: white;
-            /* LIGNE 46: Fond blanc pour contraster avec le fond gris de body */
-            padding: 40px;
-            /* LIGNE 47: Espacement interne de 40px pour aérer le contenu */
-            border-radius: 10px;
-            /* LIGNE 48: Coins arrondis de 10px pour un design moderne */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            /* LIGNE 49: Ombre portée : 0px horizontal, 2px vertical, 10px flou, opacité 10% */
-        }
-
-        /* ==================== STYLES DU TITRE PRINCIPAL ==================== */
-        h1 {
-        /* LIGNE 53: Sélecteur pour tous les éléments <h1> */
-            color: #333;
-            /* LIGNE 55: Couleur gris foncé (#333 = RGB(51,51,51)) */
-            margin-bottom: 30px;
-            /* LIGNE 56: Marge inférieure de 30px pour espacer du contenu suivant */
-        }
-
-        /* ==================== STYLES DU BOUTON PRINCIPAL ==================== */
-        #button {
-        /* LIGNE 60: Sélecteur d'ID CSS pour l'élément avec id="button" */
-        /* IMPORTANTE: # indique un ID (unique), . indique une classe (réutilisable) */
-            background-color: #4CAF50;
-            /* LIGNE 63: Couleur de fond verte (#4CAF50 = vert Material Design) */
-            color: white;
-            /* LIGNE 64: Couleur du texte en blanc pour contraster avec le fond vert */
-            padding: 15px 30px;
-            /* LIGNE 65: padding: 15px (haut/bas) 30px (gauche/droite) */
-            font-size: 18px;
-            /* LIGNE 66: Taille de police de 18 pixels */
-            border: none;
-            /* LIGNE 67: Supprime la bordure par défaut des boutons */
-            border-radius: 5px;
-            /* LIGNE 68: Coins arrondis de 5px */
-            cursor: pointer;
-            /* LIGNE 69: Change le curseur en main pointée au survol */
-            margin: 20px;
-            /* LIGNE 70: Marge de 20px sur tous les côtés */
-            transition: background-color 0.3s;
-            /* LIGNE 71: Animation de transition sur la couleur de fond (0.3 secondes) */
-        }
-
-        /* ==================== EFFET SURVOL DU BOUTON ==================== */
-        #button:hover {
-        /* LIGNE 75: Pseudo-classe :hover activée quand la souris survole l'élément */
-            background-color: #45a049;
-            /* LIGNE 77: Couleur plus foncée au survol pour feedback visuel */
-        }
-
-        /* ==================== EFFET CLIC DU BOUTON ==================== */
-        #button:active {
-        /* LIGNE 81: Pseudo-classe :active activée pendant que le bouton est pressé */
-            transform: scale(0.98);
-            /* LIGNE 83: Réduit légèrement la taille (98%) pour effet de "pression" */
-        }
-
-        /* ==================== STYLES DU COMPTEUR (PLACEHOLDER) ==================== */
-        #compteur {
-        /* LIGNE 86: Styles pour l'affichage du compteur (non utilisé dans cet exercice) */
-        /* NOTE: Ce code semble être un résidu d'un autre exercice */
-            font-size: 48px;
-            /* LIGNE 89: Taille de police très grande pour visibilité */
-            font-weight: bold;
-            /* LIGNE 90: Texte en gras */
-            color: #2196F3;
-            /* LIGNE 91: Couleur bleue */
-            margin: 30px 0;
-            /* LIGNE 92: Marge verticale de 30px */
-            padding: 20px;
-            /* LIGNE 93: Espacement interne de 20px */
-            background-color: #e7f3ff;
-            /* LIGNE 94: Fond bleu très clair */
-            border-radius: 10px;
-            /* LIGNE 95: Coins arrondis */
-            border: 2px solid #2196F3;
-            /* LIGNE 96: Bordure bleue de 2px */
-        }
-
-        /* ==================== STYLES DE LA DESCRIPTION ==================== */
-        .description {
-        /* LIGNE 100: Styles pour la boîte de description */
-            background-color: #fff3cd;
-            /* LIGNE 102: Fond jaune clair pour attirer l'attention */
-            border-left: 4px solid #ffc107;
-            /* LIGNE 103: Bordure gauche jaune de 4px */
-            padding: 15px;
-            /* LIGNE 104: Espacement interne de 15px */
-            margin-bottom: 30px;
-            /* LIGNE 105: Marge inférieure de 30px */
-            border-radius: 5px;
-            /* LIGNE 106: Coins légèrement arrondis */
-            text-align: left;
-            /* LIGNE 107: Alignement du texte à gauche */
-        }
-
-    </style>
-    <!-- LIGNE 110: Fin de la section styles CSS internes -->
-
+    <!-- LIEN VERS CSS -->
+    <link rel="stylesheet" href="style.css">
 <!-- ==================== FIN DES MÉTADONNÉES ==================== -->
 </head>
 <!-- LIGNE 113: Fermeture de la section <head> -->
@@ -176,7 +50,8 @@
         <h1>Afficher/Masquer Article</h1>
         <!-- LIGNE 124: <h1> définit un titre de niveau 1 (le plus important hiérarchiquement) -->
         <!-- BONNE PRATIQUE: Il devrait y avoir un seul <h1> par page pour le référencement -->
-
+        <!-- LIEN VERS CSS -->
+        <link rel="stylesheet" href="style.css">
         <!-- ==================== DESCRIPTION DE L'EXERCICE ==================== -->
         <div class="description">
         <!-- LIGNE 128: Boîte de description avec le style jaune défini dans CSS -->
@@ -242,10 +117,10 @@
 <!-- 
     ANALYSE LIGNE PAR LIGNE DU FICHIER JOB03 :
     
-    🎯 OBJECTIF DE L'EXERCICE :
+     OBJECTIF DE L'EXERCICE :
     Créer un bouton qui affiche/masque un article alternativement
     
-    📋 ÉLÉMENTS HTML CLÉS ANALYSÉS :
+     ÉLÉMENTS HTML CLÉS ANALYSÉS :
     
     LIGNE 1-2 : DOCTYPE et déclaration HTML5
     LIGNE 7 : Élément racine avec langue française
@@ -262,16 +137,16 @@
     LIGNE 152 : Conteneur vide pour contenu dynamique
     LIGNE 160 : Inclusion du script JavaScript externe
     
-    🔧 COMPORTEMENT ATTENDU :
+     COMPORTEMENT ATTENDU :
     - Premier clic sur bouton : article apparaît dans le conteneur
     - Deuxième clic : article disparaît du conteneur  
     - Troisième clic : article réapparaît
     - Et ainsi de suite (système de toggle/basculement)
     
-    📜 CONTENU DE L'ARTICLE À AFFICHER :
+     CONTENU DE L'ARTICLE À AFFICHER :
     "L'important n'est pas la chute, mais l'atterrissage."
     
-    🛠️ TECHNIQUES UTILISÉES :
+     TECHNIQUES UTILISÉES :
     - Structure HTML5 sémantique et accessible
     - CSS interne pour styles et animations
     - Manipulation DOM dynamique avec innerHTML
@@ -280,18 +155,18 @@
     - Structure conditionnelle if/else en JavaScript
     - Séparation des responsabilités (HTML/CSS/JS)
     
-    🏗️ ARCHITECTURE LOGIQUE :
+     ARCHITECTURE LOGIQUE :
     État initial : conteneur vide, variable JavaScript = false
     Clic utilisateur → Vérifier état variable → Action appropriée → Changer état
     
-    🎨 DESIGN ET UX :
+     DESIGN ET UX :
     - Design moderne avec coins arrondis et ombres
     - Couleurs contrastées pour accessibilité
     - Feedback visuel sur bouton (hover, active)
     - Layout responsive et centré
     - Typographie claire et hiérarchisée
     
-    ✅ BONNES PRATIQUES RESPECTÉES :
+     BONNES PRATIQUES RESPECTÉES :
     - DOCTYPE HTML5 en première ligne
     - Métadonnées complètes (charset, viewport, title)
     - Un seul H1 par page pour SEO
